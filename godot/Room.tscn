@@ -1,14 +1,58 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Target.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Room.gd" type="Script" id=3]
 
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float width : hint_range(0.0, 16.0);
+uniform vec4 outline_color : hint_color;
+ 
+void fragment()
+{
+    vec2 size = vec2(width) / vec2(textureSize(TEXTURE, 0));
+   
+    vec4 sprite_color = texture(TEXTURE, UV);
+   
+    float alpha = sprite_color.a;
+    alpha += texture(TEXTURE, UV + vec2(0.0, -size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(size.x, -size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(size.x, 0.0)).a;
+    alpha += texture(TEXTURE, UV + vec2(size.x, size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(0.0, size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(-size.x, size.y)).a;
+    alpha += texture(TEXTURE, UV + vec2(-size.x, 0.0)).a;
+    alpha += texture(TEXTURE, UV + vec2(-size.x, -size.y)).a;
+   
+    vec3 final_color = mix(outline_color.rgb, sprite_color.rgb, sprite_color.a);
+    COLOR = vec4(final_color, clamp(alpha, 0.0, 1.0));
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 0.423529, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 0.423529, 0, 1 )
+
 [node name="Room" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Target" parent="." instance=ExtResource( 2 )]
-position = Vector2( 510.268, 207.887 )
+position = Vector2( 382.268, 207.887 )
+outline_shader = SubResource( 5 )
+
+[node name="Target2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 654.268, 207.887 )
+outline_shader = SubResource( 6 )
 
 [node name="Hand" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 570 )

@@ -18,6 +18,10 @@ config/name="Guardian Angel (of Death)"
 run/main_scene="res://Room.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Events="*res://global/Events.gd"
+
 [input]
 
 ui_touch={

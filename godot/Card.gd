@@ -39,6 +39,7 @@ func _on_Card_input_event(viewport, event, shape_idx):
 		set_dragging(true)
 		set_hovering(false)
 		emit_signal('picked', self)
+		Events.emit_signal("card_picked", self)
 
 func _input(event):
 	if not dragging:
@@ -68,7 +69,7 @@ func _input(event):
 					queue_free() # cards are single use
 				
 		emit_signal('dropped', self)
-	
+		Events.emit_signal("card_dropped", self)
 ###
 # AUTOMATIC MOVEMENT
 ###
