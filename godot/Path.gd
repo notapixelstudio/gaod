@@ -1,6 +1,6 @@
 extends Node2D
 
-export var separation = 88
+export var separation = 44
 
 func _ready():
 	self.update_tile_positions()

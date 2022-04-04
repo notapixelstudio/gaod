@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 48, 60 )
 
-[node name="Target" type="Area2D" groups=["targets"]]
+[node name="Tile" type="Area2D" groups=["targets"]]
 scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 1 )
 outline_shader = ExtResource( 3 )
