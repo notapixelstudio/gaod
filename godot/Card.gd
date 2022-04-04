@@ -49,6 +49,11 @@ func _input(event):
 		# update position relative to the picked point
 		position += event.position - previous_mouse_position
 		previous_mouse_position = event.position
+		
+		# Check if hovering on target
+		for area in get_overlapping_areas():
+			if area.is_in_group('targets'):
+				area.hover(self)
 	
 	if event.is_action_released('ui_touch'):
 		# End dragging

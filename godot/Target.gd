@@ -11,16 +11,18 @@ func interact(card):
 	return false
 
 
-func _on_Target_mouse_entered():
-	sprite.set_material(outline_shader)
-
-
-func _on_Target_mouse_exited():
-	sprite.material = null
-
-func _on_Target_area_shape_entered(area_id, area, area_shape, self_shape):
-	sprite.set_material(outline_shader)
-
-
+func hover(card):
+	# TBD some cards are different about this
+	if card.title == 'KILL':
+		self.highlight()
+	
 func _on_Target_area_shape_exited(area_id, area, area_shape, self_shape):
+	self.remove_highlight()
+	
+	
+func highlight():
+	sprite.set_material(outline_shader)
+
+func remove_highlight():
 	sprite.material = null
+	
