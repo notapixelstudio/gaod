@@ -2,7 +2,8 @@ extends Node2D
 
 const Card = preload('res://Card.tscn')
 
-const separation = 150
+export var separation = 150
+export var deck_global_position = Vector2(0,0)
 
 func draw(what):
 	var card = Card.instance()
@@ -10,6 +11,7 @@ func draw(what):
 	card.connect('dropped', self, '_on_Card_dropped')
 	card.connect('tree_exited', self, '_on_Card_destroyed')
 	card.title = what
+	card.global_position = deck_global_position
 	update_card_positions()
 	
 func update_card_positions():

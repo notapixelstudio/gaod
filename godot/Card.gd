@@ -5,6 +5,18 @@ Draggable card. Fires 'picked' at drag start and 'dropped' at drag end.
 Appearance and effect are both defined by a single 'title' string.
 """
 
+export var front_texture : Texture
+export var back_texture : Texture
+
+func _ready():
+	set_face_down()
+	
+func set_face_up():
+	$Sprite.texture = front_texture
+	
+func set_face_down():
+	$Sprite.texture = back_texture
+
 ###
 # CARD DEFINITION
 ###
