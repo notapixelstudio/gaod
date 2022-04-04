@@ -61,3 +61,15 @@ func blur():
 	outline_shader.set_shader_param('outline_color', Color('#ff6c00'))
 	outline_shader.set_shader_param('width', 4)
 	
+###
+# AUTOMATIC MOVEMENT
+###
+
+onready var position_tween = $PositionTween
+
+func gracefully_go_to(point):
+	position_tween.interpolate_property(self, 'position',
+		position, point, 0.5,
+		Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	position_tween.start()
+	
