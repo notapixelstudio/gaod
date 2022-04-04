@@ -55,10 +55,6 @@ outline_shader = SubResource( 5 )
 position = Vector2( 654.268, 207.887 )
 outline_shader = SubResource( 6 )
 
-[node name="Hand" parent="." instance=ExtResource( 1 )]
-position = Vector2( 512, 490 )
-deck_global_position = Vector2( 100, 510 )
-
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2( 100, 510 )
 
@@ -72,3 +68,7 @@ texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="Deck"]
 texture = ExtResource( 4 )
+
+[node name="Hand" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 490 )
+deck_global_position = Vector2( 100, 510 )
