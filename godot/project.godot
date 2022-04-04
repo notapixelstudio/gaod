@@ -22,6 +22,12 @@ config/icon="res://icon.png"
 
 Events="*res://global/Events.gd"
 
+[display]
+
+window/size/width=820
+window/size/height=480
+window/dpi/allow_hidpi=true
+
 [input]
 
 ui_touch={
