@@ -27,6 +27,7 @@ onready var label = $Label
 func set_title(v):
 	title = v
 	label.text = v
+	$Content.texture = load('res://assets/cards/'+title.to_lower()+'.png')
 
 ###
 # DRAG AND DROP
