@@ -47,6 +47,8 @@ shader_param/outline_color = Color( 1, 0.423529, 0, 1 )
 [node name="Room" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="Path" type="Node2D" parent="."]
+
 [node name="Target" parent="." instance=ExtResource( 2 )]
 position = Vector2( 251, 145 )
 outline_shader = SubResource( 5 )
