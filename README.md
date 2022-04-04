@@ -1,2 +1,2 @@
 # gaod
-Guardian Angel of Death
+Guardian Angel (of Death)
