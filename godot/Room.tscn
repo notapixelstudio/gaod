@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
@@ -10,8 +10,7 @@
 [ext_resource path="res://assets/fonts/germania-one/GermaniaOne-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Path.tscn" type="PackedScene" id=9]
 [ext_resource path="res://SpacerTile.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/arrow_continue.png" type="Texture" id=11]
-[ext_resource path="res://assets/arrow_end.png" type="Texture" id=12]
+[ext_resource path="res://Arrow.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=7]
 size = 48
@@ -149,6 +148,17 @@ scale = Vector2( 0.51, 0.51 )
 texture = ExtResource( 7 )
 centered = false
 
+[node name="Death" type="Node2D" parent="."]
+position = Vector2( 759, 240 )
+scale = Vector2( 0.75, 0.75 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Death"]
+position = Vector2( 0, -30 )
+texture = ExtResource( 6 )
+
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 margin_top = 8.0
@@ -230,34 +240,12 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Arrow" type="Node2D" parent="Path/Tile8/Mortal"]
-
-[node name="Sprite" type="Sprite" parent="Path/Tile8/Mortal/Arrow"]
-position = Vector2( -3.99999, -74.6668 )
+[node name="Arrow" parent="Path/Tile8/Mortal" instance=ExtResource( 11 )]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-centered = false
-
-[node name="Sprite2" type="Sprite" parent="Path/Tile8/Mortal/Arrow"]
-position = Vector2( 110.667, -74.6668 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 12 )
-centered = false
 
 [node name="Sprite" type="Sprite" parent="Path/Tile8/Mortal"]
 position = Vector2( 0, -30 )
 texture = ExtResource( 5 )
-
-[node name="Death" type="Node2D" parent="."]
-position = Vector2( 759, 240 )
-scale = Vector2( 0.75, 0.75 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Death"]
-position = Vector2( 0, -30 )
-texture = ExtResource( 6 )
 
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2( 64, 384 )

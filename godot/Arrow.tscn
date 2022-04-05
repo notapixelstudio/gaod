@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/arrow_continue.png" type="Texture" id=1]
+[ext_resource path="res://assets/arrow_end.png" type="Texture" id=2]
+[ext_resource path="res://Arrow.gd" type="Script" id=3]
+
+[node name="Arrow" type="Node2D"]
+script = ExtResource( 3 )
+arrow_sprite = ExtResource( 1 )
+arrow_end_sprite = ExtResource( 2 )
