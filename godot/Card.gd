@@ -55,6 +55,7 @@ func _on_Card_input_event(viewport, event, shape_idx):
 		previous_mouse_position = event.position
 		set_dragging(true)
 		set_hovering(false)
+		self.shrink_area()
 		emit_signal('picked', self)
 		Events.emit_signal("card_picked", self)
 
@@ -76,6 +77,7 @@ func _input(event):
 	if event.is_action_released('ui_touch'):
 		# End dragging
 		previous_mouse_position = Vector2()
+		self.restore_area()
 		set_dragging(false)
 		
 		# Check if dropped onto target
@@ -88,6 +90,13 @@ func _input(event):
 				
 		emit_signal('dropped', self)
 		Events.emit_signal("card_dropped", self)
+		
+func shrink_area():
+	$CollisionShape2D.shape.extents.x = 1
+	
+func restore_area():
+	$CollisionShape2D.shape.extents.x = 48
+	
 ###
 # AUTOMATIC MOVEMENT
 ###
