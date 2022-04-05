@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Path.tscn" type="PackedScene" id=9]
 [ext_resource path="res://SpacerTile.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Arrow.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Die.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=7]
 size = 48
@@ -219,6 +220,22 @@ outline_shader = SubResource( 18 )
 position = Vector2( -484, 0 )
 outline_shader = SubResource( 28 )
 
+[node name="Mortal" type="Node2D" parent="Path/Tile6"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Arrow" parent="Path/Tile6/Mortal" instance=ExtResource( 11 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="Path/Tile6/Mortal"]
+position = Vector2( 0, -30 )
+texture = ExtResource( 5 )
+
+[node name="Die" parent="Path/Tile6/Mortal" instance=ExtResource( 12 )]
+position = Vector2( 0, -128 )
+scale = Vector2( 0.5, 0.5 )
+
 [node name="SpacerTile7" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -528, 0 )
 outline_shader = SubResource( 20 )
@@ -234,18 +251,6 @@ outline_shader = SubResource( 22 )
 [node name="Tile8" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -660, 0 )
 outline_shader = SubResource( 30 )
-
-[node name="Mortal" type="Node2D" parent="Path/Tile8"]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Arrow" parent="Path/Tile8/Mortal" instance=ExtResource( 11 )]
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Sprite" type="Sprite" parent="Path/Tile8/Mortal"]
-position = Vector2( 0, -30 )
-texture = ExtResource( 5 )
 
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2( 64, 384 )

@@ -24,9 +24,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.4738612"
-     inkscape:cx="144.8576"
-     inkscape:cy="82.436529"
+     inkscape:zoom="3.3661485"
+     inkscape:cx="255.33633"
+     inkscape:cy="62.237302"
      inkscape:window-width="1224"
      inkscape:window-height="656"
      inkscape:window-x="56"
@@ -1478,6 +1478,221 @@
          inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/spacer_tile.png"
          inkscape:export-xdpi="191.715"
          inkscape:export-ydpi="191.715" />
+    </g>
+    <g
+       id="g2756"
+       inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/die/1.png"
+       inkscape:export-xdpi="389.72299"
+       inkscape:export-ydpi="389.72299">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.52916667;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect2260"
+         width="8.4666662"
+         height="8.4666662"
+         x="55.033333"
+         y="12.7"
+         ry="1.3229169" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="path2672"
+         cx="59.266666"
+         cy="16.933332"
+         r="0.79374999" />
+    </g>
+    <g
+       id="g2762"
+       transform="translate(10.583333)"
+       inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/die/2.png"
+       inkscape:export-xdpi="389.72299"
+       inkscape:export-ydpi="389.72299">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect2758"
+         width="8.4666662"
+         height="8.4666662"
+         x="55.033333"
+         y="12.7"
+         ry="1.3229169" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2760"
+         cx="57.679165"
+         cy="18.520834"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2788"
+         cx="60.854168"
+         cy="15.345833"
+         r="0.79374999" />
+    </g>
+    <g
+       id="g2768"
+       transform="translate(21.166667)"
+       inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/die/3.png"
+       inkscape:export-xdpi="389.72299"
+       inkscape:export-ydpi="389.72299">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect2764"
+         width="8.4666662"
+         height="8.4666662"
+         x="55.033333"
+         y="12.7"
+         ry="1.3229169" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2766"
+         cx="59.266666"
+         cy="16.933332"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2790"
+         cx="57.149998"
+         cy="14.816667"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2792"
+         cx="61.383335"
+         cy="19.050001"
+         r="0.79374999" />
+    </g>
+    <g
+       id="g2882"
+       transform="translate(10.583333,10.583333)"
+       inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/die/5.png"
+       inkscape:export-xdpi="389.72299"
+       inkscape:export-ydpi="389.72299">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect2874"
+         width="8.4666662"
+         height="8.4666662"
+         x="55.033333"
+         y="12.7"
+         ry="1.3229169" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2876"
+         cx="59.266666"
+         cy="16.933332"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2878"
+         cx="57.149998"
+         cy="14.816667"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2880"
+         cx="61.383335"
+         cy="19.050001"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2884"
+         cx="61.383335"
+         cy="14.816667"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2886"
+         cx="57.149998"
+         cy="19.050001"
+         r="0.79374999" />
+    </g>
+    <g
+       id="g2900"
+       transform="translate(21.166667,10.583333)"
+       inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/die/6.png"
+       inkscape:export-xdpi="389.72299"
+       inkscape:export-ydpi="389.72299">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect2888"
+         width="8.4666662"
+         height="8.4666662"
+         x="55.033333"
+         y="12.7"
+         ry="1.3229169" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2890"
+         cx="57.149998"
+         cy="16.933332"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2892"
+         cx="57.149998"
+         cy="14.816667"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2894"
+         cx="61.383335"
+         cy="19.050001"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2896"
+         cx="61.383335"
+         cy="14.816667"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2898"
+         cx="57.149998"
+         cy="19.050001"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2902"
+         cx="61.383335"
+         cy="16.933332"
+         r="0.79374999" />
+    </g>
+    <g
+       id="g2916"
+       transform="translate(-3.6666667e-7,10.583333)"
+       inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/die/4.png"
+       inkscape:export-xdpi="389.72299"
+       inkscape:export-ydpi="389.72299">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect2904"
+         width="8.4666662"
+         height="8.4666662"
+         x="55.033333"
+         y="12.7"
+         ry="1.3229169" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2908"
+         cx="57.307201"
+         cy="14.973867"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2910"
+         cx="61.226131"
+         cy="18.892797"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2912"
+         cx="61.226131"
+         cy="14.973867"
+         r="0.79374999" />
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.529167;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle2914"
+         cx="57.2286"
+         cy="18.892797"
+         r="0.79374999" />
     </g>
   </g>
 </svg>
