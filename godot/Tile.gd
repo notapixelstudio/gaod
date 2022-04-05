@@ -29,7 +29,7 @@ func is_valid_target(card):
 func hover(card):
 	if not self.is_valid_target(card):
 		return
-		
+	
 	focus()
 	
 func _on_Target_area_shape_exited(area_id, area, area_shape, self_shape):

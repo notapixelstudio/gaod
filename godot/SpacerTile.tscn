@@ -10,7 +10,6 @@ extents = Vector2( 9, 70 )
 
 [node name="SpacerTile" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-outline_shader = null
 
 [node name="Sprite" parent="." index="0"]
 visible = false

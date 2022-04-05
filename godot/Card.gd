@@ -68,7 +68,7 @@ func _input(event):
 		for area in get_overlapping_areas():
 			if area.is_in_group('targets'):
 				area.hover(self)
-	
+		
 	if event.is_action_released('ui_touch'):
 		# End dragging
 		previous_mouse_position = Vector2()
