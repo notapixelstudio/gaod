@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://assets/fonts/germania-one/GermaniaOne-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Path.tscn" type="PackedScene" id=9]
 [ext_resource path="res://SpacerTile.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/arrow_continue.png" type="Texture" id=11]
+[ext_resource path="res://assets/arrow_end.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=7]
 size = 48
@@ -48,7 +50,19 @@ shader = SubResource( 4 )
 shader_param/width = 3.0
 shader_param/outline_color = Color( 1, 1, 1, 1 )
 
+[sub_resource type="ShaderMaterial" id=23]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="ShaderMaterial" id=10]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=24]
 resource_local_to_scene = true
 shader = SubResource( 4 )
 shader_param/width = 3.0
@@ -60,7 +74,19 @@ shader = SubResource( 4 )
 shader_param/width = 3.0
 shader_param/outline_color = Color( 1, 1, 1, 1 )
 
+[sub_resource type="ShaderMaterial" id=25]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="ShaderMaterial" id=14]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=26]
 resource_local_to_scene = true
 shader = SubResource( 4 )
 shader_param/width = 3.0
@@ -72,7 +98,19 @@ shader = SubResource( 4 )
 shader_param/width = 3.0
 shader_param/outline_color = Color( 1, 1, 1, 1 )
 
+[sub_resource type="ShaderMaterial" id=27]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="ShaderMaterial" id=18]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=28]
 resource_local_to_scene = true
 shader = SubResource( 4 )
 shader_param/width = 3.0
@@ -84,7 +122,19 @@ shader = SubResource( 4 )
 shader_param/width = 3.0
 shader_param/outline_color = Color( 1, 1, 1, 1 )
 
+[sub_resource type="ShaderMaterial" id=29]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="ShaderMaterial" id=22]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/width = 3.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=30]
 resource_local_to_scene = true
 shader = SubResource( 4 )
 shader_param/width = 3.0
@@ -110,13 +160,14 @@ align = 1
 valign = 1
 
 [node name="Path" parent="." instance=ExtResource( 9 )]
-position = Vector2( 712, 224 )
+position = Vector2( 712, 206 )
 
 [node name="SpacerTile" parent="Path" instance=ExtResource( 10 )]
 outline_shader = SubResource( 8 )
 
 [node name="Tile" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -44, 0 )
+outline_shader = SubResource( 23 )
 
 [node name="SpacerTile2" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -88, 0 )
@@ -124,6 +175,7 @@ outline_shader = SubResource( 10 )
 
 [node name="Tile2" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -132, 0 )
+outline_shader = SubResource( 24 )
 
 [node name="SpacerTile3" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -176, 0 )
@@ -131,6 +183,7 @@ outline_shader = SubResource( 12 )
 
 [node name="Tile3" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -220, 0 )
+outline_shader = SubResource( 25 )
 
 [node name="SpacerTile4" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -264, 0 )
@@ -138,6 +191,7 @@ outline_shader = SubResource( 14 )
 
 [node name="Tile4" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -308, 0 )
+outline_shader = SubResource( 26 )
 
 [node name="SpacerTile5" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -352, 0 )
@@ -145,6 +199,7 @@ outline_shader = SubResource( 16 )
 
 [node name="Tile5" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -396, 0 )
+outline_shader = SubResource( 27 )
 
 [node name="SpacerTile6" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -440, 0 )
@@ -152,6 +207,7 @@ outline_shader = SubResource( 18 )
 
 [node name="Tile6" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -484, 0 )
+outline_shader = SubResource( 28 )
 
 [node name="SpacerTile7" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -528, 0 )
@@ -159,6 +215,7 @@ outline_shader = SubResource( 20 )
 
 [node name="Tile7" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -572, 0 )
+outline_shader = SubResource( 29 )
 
 [node name="SpacerTile8" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -616, 0 )
@@ -166,15 +223,28 @@ outline_shader = SubResource( 22 )
 
 [node name="Tile8" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -660, 0 )
+outline_shader = SubResource( 30 )
 
-[node name="Mortal" type="Node2D" parent="."]
-position = Vector2( 228, 210 )
-scale = Vector2( 0.75, 0.75 )
+[node name="Mortal" type="Node2D" parent="Path/Tile8"]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Mortal"]
+[node name="Arrow" type="Node2D" parent="Path/Tile8/Mortal"]
+
+[node name="Sprite" type="Sprite" parent="Path/Tile8/Mortal/Arrow"]
+position = Vector2( -3.99999, -74.6668 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Path/Tile8/Mortal/Arrow"]
+position = Vector2( 110.667, -74.6668 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="Sprite" type="Sprite" parent="Path/Tile8/Mortal"]
 position = Vector2( 0, -30 )
 texture = ExtResource( 5 )
 

@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    sodipodi:docname="master.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.1.1 (1:1.1+202109281949+c3084ef5ed)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -24,13 +24,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="8.7988368"
-     inkscape:cx="122.68667"
-     inkscape:cy="62.849217"
-     inkscape:window-width="2560"
-     inkscape:window-height="1348"
-     inkscape:window-x="0"
-     inkscape:window-y="55"
+     inkscape:zoom="1.4738612"
+     inkscape:cx="144.8576"
+     inkscape:cy="82.436529"
+     inkscape:window-width="1224"
+     inkscape:window-height="656"
+     inkscape:window-x="56"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      inkscape:snap-global="true">
@@ -1138,12 +1138,18 @@
        style="fill:url(#linearGradient7455);fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 10.847917,48.683334 c 0,-10.31875 13.758334,-12.7 13.758334,0 h 2.116666 c 1e-6,-12.7 -15.875,-12.7 -15.875,0 z"
        id="path1081"
-       sodipodi:nodetypes="cccc" />
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/arrow_start.png"
+       inkscape:export-xdpi="389.72299"
+       inkscape:export-ydpi="389.72299" />
     <path
        style="fill:url(#linearGradient7621);fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 24.60625,48.683334 c 0.529167,0 1.322917,0 2.116667,0 0,-10.31875 12.7,-10.31875 12.7,0 h 2.116666 c 10e-7,-12.7 -16.933333,-12.7 -16.933333,0 z"
        id="path6026"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/arrow_continue.png"
+       inkscape:export-xdpi="389.72299"
+       inkscape:export-ydpi="389.72299" />
     <g
        id="g8045"
        inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/card.png"
@@ -1380,7 +1386,10 @@
        id="path8209"
        style="fill:url(#linearGradient8211);fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 47.862193,39.158333 c -4.224123,0.01375 -8.439277,3.188782 -8.439277,9.525 h 2.116667 c 0,-9.092909 9.859777,-10.171054 12.202871,-3.238561 l -2.148705,-0.201022 3.682463,3.420462 0.01498,0.01913 0.0011,-0.0047 0.0057,0.0046 2.116667,-5.027083 -1.709973,1.063501 c -1.349971,-3.717888 -4.598588,-5.57198 -7.842417,-5.561418 z"
-       sodipodi:nodetypes="sccccccccccs" />
+       sodipodi:nodetypes="sccccccccccs"
+       inkscape:export-filename="/home/nitaku/repos/gaod/godot/assets/arrow_end.png"
+       inkscape:export-xdpi="389.72299"
+       inkscape:export-ydpi="389.72299" />
     <g
        id="g10432"
        transform="matrix(0.99789206,0,0,1.2380389,14.383847,30.421456)"
