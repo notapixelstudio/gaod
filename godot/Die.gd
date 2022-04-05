@@ -10,7 +10,7 @@ func _on_mortal_turn_start():
 	$AnimationPlayer.play("Roll")
 	yield($AnimationPlayer, "animation_finished")
 	Events.emit_signal("mortal_about_to_move", value)
-
+	
 func roll():
 	value = 1 + randi() % 6
 	$Sprite.texture = load('res://assets/die/'+str(value)+'.png')

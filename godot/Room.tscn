@@ -1,17 +1,15 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Room.gd" type="Script" id=3]
 [ext_resource path="res://assets/card_back.png" type="Texture" id=4]
-[ext_resource path="res://assets/mortal.png" type="Texture" id=5]
+[ext_resource path="res://Mortal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/skull.png" type="Texture" id=6]
 [ext_resource path="res://assets/background.png" type="Texture" id=7]
 [ext_resource path="res://assets/fonts/germania-one/GermaniaOne-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Path.tscn" type="PackedScene" id=9]
 [ext_resource path="res://SpacerTile.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Arrow.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Die.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=7]
 size = 48
@@ -220,21 +218,7 @@ outline_shader = SubResource( 18 )
 position = Vector2( -484, 0 )
 outline_shader = SubResource( 28 )
 
-[node name="Mortal" type="Node2D" parent="Path/Tile6"]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Arrow" parent="Path/Tile6/Mortal" instance=ExtResource( 11 )]
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Sprite" type="Sprite" parent="Path/Tile6/Mortal"]
-position = Vector2( 0, -30 )
-texture = ExtResource( 5 )
-
-[node name="Die" parent="Path/Tile6/Mortal" instance=ExtResource( 12 )]
-position = Vector2( 0, -128 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Mortal" parent="Path/Tile6" instance=ExtResource( 5 )]
 
 [node name="SpacerTile7" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -528, 0 )
@@ -277,3 +261,13 @@ texture = ExtResource( 4 )
 position = Vector2( 410, 410 )
 separation = 120
 deck_global_position = Vector2( 64, 384 )
+
+[node name="PassButton" type="Button" parent="."]
+margin_left = 607.0
+margin_top = 433.0
+margin_right = 699.0
+margin_bottom = 471.0
+disabled = true
+text = "PASS"
+
+[connection signal="pressed" from="PassButton" to="." method="_on_Button_pressed"]

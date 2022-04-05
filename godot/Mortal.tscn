@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Mortal.gd" type="Script" id=1]
+[ext_resource path="res://Arrow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/mortal.png" type="Texture" id=5]
+[ext_resource path="res://Die.tscn" type="PackedScene" id=7]
+
+[node name="Mortal" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Arrow" parent="." instance=ExtResource( 4 )]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -30 )
+texture = ExtResource( 5 )
+
+[node name="Die" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, -128 )
+scale = Vector2( 0.5, 0.5 )

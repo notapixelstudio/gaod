@@ -8,12 +8,10 @@ export var dx := 235
 var steps = 0 setget set_steps
 
 func _ready():
+	Events.connect('mortal_turn_start', self, '_on_mortal_turn_start')
 	Events.connect('mortal_about_to_move', self, '_on_mortal_about_to_move')
 	
 func set_steps(amount):
-	if not self.is_inside_tree():
-		yield(self, 'ready')
-	
 	steps = amount
 	self.empty()
 	
@@ -34,6 +32,9 @@ func empty():
 	for child in get_children():
 		child.free()
 
+func _on_mortal_turn_start():
+	self.empty()
+	
 func _on_mortal_about_to_move(value):
 	self.set_steps(value)
 	

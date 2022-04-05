@@ -6,3 +6,5 @@ signal card_destroyed(card)
 
 signal mortal_turn_start()
 signal mortal_about_to_move(steps)
+signal mortal_move_start()
+signal mortal_turn_end()
