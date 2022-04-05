@@ -11,6 +11,10 @@ export var back_texture : Texture
 func _ready():
 	set_face_down()
 	
+	Events.connect('card_picked', self, '_on_card_picked')
+	Events.connect('card_dropped', self, '_on_card_dropped')
+	Events.connect('card_destroyed', self, '_on_card_destroyed')
+	
 func set_face_up():
 	$Sprite.texture = front_texture
 	
@@ -79,6 +83,7 @@ func _input(event):
 			if area.is_in_group('targets'):
 				var interacted = area.interact(self)
 				if interacted:
+					Events.emit_signal("card_destroyed", self)
 					queue_free() # cards are single use
 				
 		emit_signal('dropped', self)
@@ -101,6 +106,7 @@ func gracefully_go_to(point):
 
 onready var scale_tween = $ScaleTween
 var hovering = false setget set_hovering
+var playing_a_card = false
 
 func set_hovering(v):
 	hovering = v
@@ -117,7 +123,18 @@ func set_hovering(v):
 	scale_tween.start()
 
 func _on_Card_mouse_entered():
-	set_hovering(true)
+	if not playing_a_card:
+		set_hovering(true)
 	
 func _on_Card_mouse_exited():
 	set_hovering(false)
+
+func _on_card_picked(card):
+	playing_a_card = true
+	
+func _on_card_dropped(card):
+	playing_a_card = false
+	
+func _on_card_destroyed(card):
+	playing_a_card = false
+	

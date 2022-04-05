@@ -6,6 +6,7 @@ onready var sprite = $Sprite
 func _ready():
 	Events.connect('card_picked', self, '_on_card_picked')
 	Events.connect('card_dropped', self, '_on_card_dropped')
+	Events.connect('card_destroyed', self, '_on_card_destroyed')
 
 # BUSINESS LOGIC
 func interact(card):
@@ -43,6 +44,9 @@ func _on_card_picked(card):
 	self.highlight()
 	
 func _on_card_dropped(card):
+	self.remove_highlight()
+	
+func _on_card_destroyed(card):
 	self.remove_highlight()
 	
 
