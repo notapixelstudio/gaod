@@ -1,6 +1,10 @@
 extends Area2D
+class_name Tile
 
 export var outline_shader: Resource
+const WIDTH := 72
+var width := WIDTH
+
 onready var sprite = $Sprite
 
 func _ready():
@@ -52,7 +56,6 @@ func _on_card_destroyed(card):
 
 func highlight():
 	sprite.set_material(outline_shader)
-	blur()
 	
 func remove_highlight():
 	sprite.material = null

@@ -34,12 +34,12 @@ void fragment()
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
 shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
+shader_param/width = 4.0
+shader_param/outline_color = Color( 1, 0.423529, 0, 1 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 9, 70 )
+extents = Vector2( 8, 70 )
 
 [node name="SpacerTile" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -50,5 +50,4 @@ visible = false
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
 shape = SubResource( 1 )

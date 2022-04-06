@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
@@ -14,129 +14,6 @@
 [sub_resource type="DynamicFont" id=7]
 size = 48
 font_data = ExtResource( 8 )
-
-[sub_resource type="Shader" id=4]
-code = "shader_type canvas_item;
-render_mode unshaded;
- 
-uniform float width : hint_range(0.0, 16.0);
-uniform vec4 outline_color : hint_color;
- 
-void fragment()
-{
-    vec2 size = vec2(width) / vec2(textureSize(TEXTURE, 0));
-   
-    vec4 sprite_color = texture(TEXTURE, UV);
-   
-    float alpha = sprite_color.a;
-    alpha += texture(TEXTURE, UV + vec2(0.0, -size.y)).a;
-    alpha += texture(TEXTURE, UV + vec2(size.x, -size.y)).a;
-    alpha += texture(TEXTURE, UV + vec2(size.x, 0.0)).a;
-    alpha += texture(TEXTURE, UV + vec2(size.x, size.y)).a;
-    alpha += texture(TEXTURE, UV + vec2(0.0, size.y)).a;
-    alpha += texture(TEXTURE, UV + vec2(-size.x, size.y)).a;
-    alpha += texture(TEXTURE, UV + vec2(-size.x, 0.0)).a;
-    alpha += texture(TEXTURE, UV + vec2(-size.x, -size.y)).a;
-   
-    vec3 final_color = mix(outline_color.rgb, sprite_color.rgb, sprite_color.a);
-    COLOR = vec4(final_color, clamp(alpha, 0.0, 1.0));
-}"
-
-[sub_resource type="ShaderMaterial" id=8]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=23]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=10]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=24]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=12]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=25]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=14]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=26]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=16]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=27]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=18]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=28]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=20]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=29]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=22]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=30]
-resource_local_to_scene = true
-shader = SubResource( 4 )
-shader_param/width = 3.0
-shader_param/outline_color = Color( 1, 1, 1, 1 )
 
 [node name="Room" type="Node2D"]
 script = ExtResource( 3 )
@@ -172,69 +49,53 @@ valign = 1
 position = Vector2( 712, 206 )
 
 [node name="SpacerTile" parent="Path" instance=ExtResource( 10 )]
-outline_shader = SubResource( 8 )
 
 [node name="Tile" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -44, 0 )
-outline_shader = SubResource( 23 )
 
 [node name="SpacerTile2" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -88, 0 )
-outline_shader = SubResource( 10 )
 
 [node name="Tile2" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -132, 0 )
-outline_shader = SubResource( 24 )
 
 [node name="SpacerTile3" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -176, 0 )
-outline_shader = SubResource( 12 )
 
 [node name="Tile3" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -220, 0 )
-outline_shader = SubResource( 25 )
 
 [node name="SpacerTile4" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -264, 0 )
-outline_shader = SubResource( 14 )
 
 [node name="Tile4" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -308, 0 )
-outline_shader = SubResource( 26 )
 
 [node name="SpacerTile5" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -352, 0 )
-outline_shader = SubResource( 16 )
 
 [node name="Tile5" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -396, 0 )
-outline_shader = SubResource( 27 )
 
 [node name="SpacerTile6" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -440, 0 )
-outline_shader = SubResource( 18 )
 
 [node name="Tile6" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -484, 0 )
-outline_shader = SubResource( 28 )
 
 [node name="Mortal" parent="Path/Tile6" instance=ExtResource( 5 )]
 
 [node name="SpacerTile7" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -528, 0 )
-outline_shader = SubResource( 20 )
 
 [node name="Tile7" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -572, 0 )
-outline_shader = SubResource( 29 )
 
 [node name="SpacerTile8" parent="Path" instance=ExtResource( 10 )]
 position = Vector2( -616, 0 )
-outline_shader = SubResource( 22 )
 
 [node name="Tile8" parent="Path" instance=ExtResource( 2 )]
 position = Vector2( -660, 0 )
-outline_shader = SubResource( 30 )
 
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2( 64, 384 )

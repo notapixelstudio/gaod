@@ -8,8 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Tile",
+"class": "SpacerTile",
+"language": "GDScript",
+"path": "res://SpacerTile.gd"
+}, {
+"base": "Area2D",
+"class": "Tile",
+"language": "GDScript",
+"path": "res://Tile.gd"
+} ]
 _global_script_class_icons={
+"SpacerTile": "",
+"Tile": ""
 }
 
 [application]
