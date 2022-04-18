@@ -70,3 +70,9 @@ func _on_card_played_onto_dropzone(card, i):
 	$Tiles.move_child(tile, i)
 	self.update_tile_positions(true) # instantly
 	
+	self.remove_excess_tiles()
+	
+func remove_excess_tiles():
+	for i in range(dropzones, len($Tiles.get_children())):
+		var tile = $Tiles.get_child(i)
+		tile.queue_free()
