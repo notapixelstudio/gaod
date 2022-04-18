@@ -2,6 +2,7 @@ extends Area2D
 
 signal card_entered
 signal card_exited
+signal card_played
 
 func _ready():
 	$CollisionShape2D.shape.extents = Vector2(Tile.WIDTH/2, Tile.WIDTH/2)
@@ -18,17 +19,17 @@ func interact(card):
 		return
 		
 	match card.title:
-		'KILL':
-			queue_free()
+		'MAGNET':
+			emit_signal('card_played')
 			return true
 		'GROW':
-			scale = Vector2(2,2)
+			emit_signal('card_played')
 			return true
 	
 	return false
 	
 func is_valid_target(card):
-	return card.title in ['KILL', 'GROW']
+	return card.title in ['MAGNET', 'GROW']
 
 # HOVER
 func hover(card):
