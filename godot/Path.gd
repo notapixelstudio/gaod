@@ -45,4 +45,7 @@ func _on_card_entered_dropzone(i):
 	
 func _on_card_exited_dropzone(i):
 	preview_index = null
-	self.update_tile_positions()
+	# wait a bit to see if the players selects a new dropzone right away
+	yield(get_tree().create_timer(0.2), "timeout")
+	if preview_index == null:
+		self.update_tile_positions()
