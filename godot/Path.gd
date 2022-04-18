@@ -62,9 +62,10 @@ func _on_card_exited_dropzone(i):
 	if preview_index == null:
 		self.update_tile_positions()
 
-func _on_card_played_onto_dropzone(i):
+func _on_card_played_onto_dropzone(card, i):
 	preview_index = null
 	var tile = tile_scene.instance()
+	tile.set_title(card.title)
 	$Tiles.add_child(tile)
 	$Tiles.move_child(tile, i)
 	self.update_tile_positions(true) # instantly

@@ -5,6 +5,13 @@ export var outline_shader: Resource
 const WIDTH := 88
 var width := WIDTH
 
+
+var title setget set_title
+
+func set_title(v):
+	title = v
+	$Content.texture = load('res://assets/cards/'+title.to_lower()+'.png')
+
 ###
 # AUTOMATIC MOVEMENT
 ###

@@ -18,13 +18,9 @@ func interact(card):
 	if not self.is_valid_target(card):
 		return
 		
-	match card.title:
-		'MAGNET':
-			emit_signal('card_played')
-			return true
-		'GROW':
-			emit_signal('card_played')
-			return true
+	if card.title:
+		emit_signal('card_played', card)
+		return true
 	
 	return false
 	
