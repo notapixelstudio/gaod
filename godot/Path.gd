@@ -3,6 +3,8 @@ extends Node2D
 const dropzones = 8
 export var dropzone_scene : PackedScene
 export var tile_scene : PackedScene
+export var mortal_scene : PackedScene
+const starting_index = 5
 
 var preview_index = null
 
@@ -19,6 +21,10 @@ func setup_tiles():
 		var tile = tile_scene.instance()
 		tile.position.x = -i*Tile.WIDTH
 		$Tiles.add_child(tile)
+		
+		if i == starting_index:
+			var mortal = mortal_scene.instance()
+			tile.add_child(mortal)
 
 func _ready():
 	Events.connect("preview_card_effect", self, '_on_preview_card_effect')

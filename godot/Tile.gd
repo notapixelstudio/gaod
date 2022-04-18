@@ -2,7 +2,7 @@ extends Area2D
 class_name Tile
 
 export var outline_shader: Resource
-const WIDTH := 86
+const WIDTH := 88
 var width := WIDTH
 
 ###
