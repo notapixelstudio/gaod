@@ -1,5 +1,8 @@
 extends Area2D
 
+signal card_entered
+signal card_exited
+
 func _ready():
 	$CollisionShape2D.shape.extents = Vector2(Tile.WIDTH/2, Tile.WIDTH/2)
 	$ColorRect.rect_position = Vector2(-Tile.WIDTH/2, -Tile.WIDTH/2)
@@ -33,9 +36,14 @@ func hover(card):
 		return
 	
 	focus()
+	emit_signal('card_entered')
 	
 func _on_Dropzone_area_exited(area):
+	if not(area is Card):
+		return
+		
 	blur()
+	emit_signal('card_exited')
 	
 # HINT
 func _on_card_picked(card):

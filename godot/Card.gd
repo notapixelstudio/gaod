@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Card
+
 """
 Draggable card. Fires 'picked' at drag start and 'dropped' at drag end.
 Appearance and effect are both defined by a single 'title' string.
