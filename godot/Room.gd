@@ -22,8 +22,8 @@ func _on_mortal_about_to_move(steps):
 	self.angel_turn_start()
 	
 func _on_mortal_move_start():
-	var mortal = $Path.find_node("Mortal")
-	var steps = mortal.get_steps()
+	#var mortal = $Path.find_node("Mortal")
+	#var steps = mortal.get_steps()
 	
 	#var starting_tile = mortal.get_parent()
 	#var start_tile_index = $Path.get_tile_index(starting_tile)
