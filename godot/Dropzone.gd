@@ -2,3 +2,63 @@ extends Area2D
 
 func _ready():
 	$CollisionShape2D.shape.extents = Vector2(Tile.WIDTH/2, Tile.WIDTH/2)
+	$ColorRect.rect_position = Vector2(-Tile.WIDTH/2, -Tile.WIDTH/2)
+	$ColorRect.rect_size = Vector2(Tile.WIDTH, Tile.WIDTH)
+	
+	Events.connect('card_picked', self, '_on_card_picked')
+	Events.connect('card_dropped', self, '_on_card_dropped')
+	Events.connect('card_destroyed', self, '_on_card_destroyed')
+
+# BUSINESS LOGIC
+func interact(card):
+	if not self.is_valid_target(card):
+		return
+		
+	match card.title:
+		'KILL':
+			queue_free()
+			return true
+		'GROW':
+			scale = Vector2(2,2)
+			return true
+	
+	return false
+	
+func is_valid_target(card):
+	return card.title in ['KILL', 'GROW']
+
+# HOVER
+func hover(card):
+	if not self.is_valid_target(card):
+		return
+	
+	focus()
+	
+func _on_Dropzone_area_exited(area):
+	blur()
+	
+# HINT
+func _on_card_picked(card):
+	if not self.is_valid_target(card):
+		return
+		
+	self.highlight()
+	
+func _on_card_dropped(card):
+	self.remove_highlight()
+	
+func _on_card_destroyed(card):
+	self.remove_highlight()
+	
+
+func highlight():
+	$ColorRect.visible = true
+	
+func remove_highlight():
+	$ColorRect.visible = false
+	
+func focus():
+	$ColorRect.color = Color('#ffcc00')
+
+func blur():
+	$ColorRect.color = Color('#ff6c00')

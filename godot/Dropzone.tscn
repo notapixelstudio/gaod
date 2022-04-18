@@ -4,8 +4,16 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Dropzone" type="Area2D"]
+[node name="Dropzone" type="Area2D" groups=["targets"]]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 1, 0.423529, 0, 1 )
+
+[connection signal="area_exited" from="." to="." method="_on_Dropzone_area_exited"]
