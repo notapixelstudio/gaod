@@ -9,20 +9,22 @@ resource_local_to_scene = true
 extents = Vector2( 48, 60 )
 
 [node name="Tile" type="Area2D"]
-scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 1 )
 outline_shader = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 18 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 
 [node name="Content" type="Sprite" parent="."]
 position = Vector2( 0, 18 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 18 )
+scale = Vector2( 0.75, 0.75 )
 shape = SubResource( 3 )
 
 [node name="PositionTween" type="Tween" parent="."]

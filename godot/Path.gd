@@ -7,6 +7,7 @@ export var mortal_scene : PackedScene
 const starting_index = 5
 var mortal
 var mortal_index = starting_index
+signal mortal_moved
 
 var preview_index = null
 
@@ -89,7 +90,14 @@ func move_mortal():
 		# GAME OVER
 		return
 		
-	mortal_index = new_index
+	for i in range(steps):
+		mortal.move()
+		yield(mortal, 'moved')
+		mortal_index -= 1
+		
+	mortal.reset_move()
 	mortal.get_parent().remove_child(mortal)
-	$Tiles.get_child(new_index).add_child(mortal)
+	$Tiles.get_child(mortal_index).add_child(mortal)
+	
+	emit_signal('mortal_moved')
 	

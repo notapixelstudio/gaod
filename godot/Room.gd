@@ -23,6 +23,7 @@ func _on_mortal_about_to_move(steps):
 	
 func _on_mortal_move_start():
 	$Path.move_mortal()
+	yield($Path, 'mortal_moved')
 	
 	# Events.emit_signal("mortal_turn_end")
 	Events.emit_signal("mortal_turn_start")
