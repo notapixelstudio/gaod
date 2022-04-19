@@ -10,6 +10,7 @@ var title setget set_title
 
 func set_title(v):
 	title = v
+	$Label.text = v
 	$Content.texture = load('res://assets/cards/'+title.to_lower()+'.png')
 
 ###

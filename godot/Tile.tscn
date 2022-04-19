@@ -27,4 +27,12 @@ shape = SubResource( 3 )
 
 [node name="PositionTween" type="Tween" parent="."]
 
+[node name="Label" type="Label" parent="."]
+margin_left = -53.0
+margin_top = 11.0
+margin_right = 53.0
+margin_bottom = 43.0
+align = 1
+valign = 1
+
 [connection signal="area_shape_exited" from="." to="." method="_on_Target_area_shape_exited"]
