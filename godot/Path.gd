@@ -26,7 +26,6 @@ func setup_tiles():
 		var tile = tile_scene.instance()
 		tile.position.x = -i*Tile.WIDTH
 		$Tiles.add_child(tile)
-		tile.get_node('Label').text = str(i)
 		
 		if i == starting_index:
 			mortal = mortal_scene.instance()
@@ -85,12 +84,11 @@ func remove_excess_tiles():
 
 func move_mortal():
 	var steps = mortal.get_steps()
-	var new_index = mortal_index - steps # 0 is at the right end of the path
 	
 	for i in range(steps):
 		mortal.move()
 		yield(mortal, 'moved')
-		mortal_index -= 1
+		mortal_index -= 1 # tile index deacreases going right
 		if mortal_index < 0:
 			Events.emit_signal("game_over")
 			return
