@@ -3,6 +3,7 @@ extends Node2D
 func _ready():
 	Events.connect('mortal_about_to_move', self, '_on_mortal_about_to_move')
 	Events.connect('mortal_move_start', self, '_on_mortal_move_start')
+	Events.connect('game_over', self, '_on_game_over')
 	
 	randomize()
 	
@@ -34,3 +35,7 @@ func angel_turn_start():
 func angel_turn_end():
 	$PassButton.disabled = true
 	Events.emit_signal("mortal_move_start")
+	
+func _on_game_over():
+	print('GAME OVER')
+	

@@ -11,3 +11,5 @@ signal preview_card_effect()
 
 signal mortal_move_start()
 signal mortal_turn_end()
+
+signal game_over()

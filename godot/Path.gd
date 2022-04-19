@@ -86,14 +86,14 @@ func remove_excess_tiles():
 func move_mortal():
 	var steps = mortal.get_steps()
 	var new_index = mortal_index - steps # 0 is at the right end of the path
-	if new_index < 0:
-		# GAME OVER
-		return
-		
+	
 	for i in range(steps):
 		mortal.move()
 		yield(mortal, 'moved')
 		mortal_index -= 1
+		if mortal_index < 0:
+			Events.emit_signal("game_over")
+			return
 		
 	mortal.reset_move()
 	mortal.get_parent().remove_child(mortal)
