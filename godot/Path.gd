@@ -5,8 +5,11 @@ export var dropzone_scene : PackedScene
 export var tile_scene : PackedScene
 export var mortal_scene : PackedScene
 const starting_index = 5
+var mortal
+var mortal_index = starting_index
 
 var preview_index = null
+
 
 func setup_dropzones():
 	for i in range(dropzones):
@@ -22,10 +25,12 @@ func setup_tiles():
 		var tile = tile_scene.instance()
 		tile.position.x = -i*Tile.WIDTH
 		$Tiles.add_child(tile)
+		tile.get_node('Label').text = str(i)
 		
 		if i == starting_index:
-			var mortal = mortal_scene.instance()
+			mortal = mortal_scene.instance()
 			tile.add_child(mortal)
+			
 
 func _ready():
 	Events.connect("preview_card_effect", self, '_on_preview_card_effect')
@@ -76,3 +81,15 @@ func remove_excess_tiles():
 	for i in range(dropzones, len($Tiles.get_children())):
 		var tile = $Tiles.get_child(i)
 		tile.queue_free()
+
+func move_mortal():
+	var steps = mortal.get_steps()
+	var new_index = mortal_index - steps # 0 is at the right end of the path
+	if new_index < 0:
+		# GAME OVER
+		return
+		
+	mortal_index = new_index
+	mortal.get_parent().remove_child(mortal)
+	$Tiles.get_child(new_index).add_child(mortal)
+	
