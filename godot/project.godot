@@ -39,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Events="*res://global/Events.gd"
+NameGenerator="*res://global/NameGenerator.gd"
 
 [display]
 

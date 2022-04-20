@@ -10,9 +10,10 @@ func _ready():
 	Events.connect('game_over', self, '_on_game_over')
 	
 	randomize()
-	self.add_turn()
 	
-	yield(get_tree().create_timer(1), "timeout")
+	self.greet_mortal()
+	yield(get_tree().create_timer(3), "timeout")
+	self.add_turn()
 	Events.emit_signal("mortal_turn_start")
 	
 func _on_Button_pressed():
@@ -60,3 +61,6 @@ func draw(how_many = 1):
 		$Hand.draw('EMPTY')
 		yield(get_tree().create_timer(0.5), "timeout")
 		
+func greet_mortal():
+	var name = NameGenerator.get_name()
+	$TurnLabel.text = 'This is the life of ' + name
