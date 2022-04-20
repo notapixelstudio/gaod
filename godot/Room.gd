@@ -1,6 +1,7 @@
 extends Node2D
 
 var turn = 0
+var deck
 
 func _ready():
 	Events.connect('mortal_about_to_move', self, '_on_mortal_about_to_move')
@@ -10,6 +11,8 @@ func _ready():
 	Events.connect('game_over', self, '_on_game_over')
 	
 	randomize()
+	
+	deck = Deck.new()
 	
 	self.greet_mortal()
 	yield(get_tree().create_timer(3), "timeout")
@@ -58,7 +61,7 @@ func add_turn():
 	
 func draw(how_many = 1):
 	for i in range(how_many):
-		$Hand.draw('EMPTY')
+		$Hand.draw(deck.draw())
 		yield(get_tree().create_timer(0.5), "timeout")
 		
 func greet_mortal():
