@@ -74,6 +74,7 @@ func _on_card_played_onto_dropzone(card, i):
 	$Tiles.move_child(tile, i)
 	self.update_tile_positions(true) # instantly
 	
+	Events.emit_signal("card_played", card)
 	self.remove_excess_tiles()
 	
 func remove_excess_tiles():

@@ -6,6 +6,7 @@ func _ready():
 	Events.connect('mortal_about_to_move', self, '_on_mortal_about_to_move')
 	Events.connect('mortal_move_start', self, '_on_mortal_move_start')
 	Events.connect('mortal_turn_end', self, '_on_mortal_turn_end')
+	Events.connect('card_played', self, '_on_card_played')
 	Events.connect('game_over', self, '_on_game_over')
 	
 	randomize()
@@ -21,6 +22,9 @@ func _ready():
 	Events.emit_signal("mortal_turn_start")
 	
 func _on_Button_pressed():
+	angel_turn_end()
+
+func _on_card_played(card):
 	angel_turn_end()
 	
 func _on_mortal_about_to_move(steps):
