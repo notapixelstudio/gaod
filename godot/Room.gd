@@ -13,12 +13,6 @@ func _ready():
 	self.add_turn()
 	
 	yield(get_tree().create_timer(1), "timeout")
-	$Hand.draw('X2')
-	yield(get_tree().create_timer(0.5), "timeout")
-	$Hand.draw('EMPTY')
-	
-	
-	yield(get_tree().create_timer(1), "timeout")
 	Events.emit_signal("mortal_turn_start")
 	
 func _on_Button_pressed():
@@ -41,6 +35,13 @@ func _on_mortal_turn_end():
 	Events.emit_signal("mortal_turn_start")
 	
 func angel_turn_start():
+	yield(get_tree().create_timer(0.5), "timeout")
+	
+	if turn == 1:
+		self.draw(2)
+	else:
+		self.draw()
+		
 	$PassButton.disabled = false
 	
 func angel_turn_end():
@@ -54,3 +55,8 @@ func add_turn():
 	turn += 1
 	$TurnLabel.text = 'Turn ' + str(turn)
 	
+func draw(how_many = 1):
+	for i in range(how_many):
+		$Hand.draw('EMPTY')
+		yield(get_tree().create_timer(0.5), "timeout")
+		
