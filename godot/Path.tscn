@@ -14,3 +14,8 @@ mortal_scene = ExtResource( 4 )
 [node name="Dropzones" type="Node2D" parent="."]
 
 [node name="Tiles" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+margin_top = -64.0
+margin_right = 40.0
+margin_bottom = -50.0

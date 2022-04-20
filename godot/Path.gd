@@ -6,7 +6,6 @@ export var tile_scene : PackedScene
 export var mortal_scene : PackedScene
 const starting_index = 5
 var mortal
-var mortal_index = starting_index
 signal mortal_moved
 
 var preview_index = null
@@ -84,6 +83,7 @@ func remove_excess_tiles():
 
 func move_mortal():
 	var steps = mortal.get_steps()
+	var mortal_index = self.find_mortal_index()
 	
 	for i in range(steps):
 		mortal.move()
@@ -99,3 +99,8 @@ func move_mortal():
 	
 	emit_signal('mortal_moved')
 	
+func find_mortal_index():
+	for i in range($Tiles.get_child_count()):
+		if $Tiles.get_child(i).has_node('Mortal'): # WARNING name is used as check
+			return i
+	return null
