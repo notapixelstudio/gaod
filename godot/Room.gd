@@ -1,6 +1,7 @@
 extends Node2D
 
-var turn = 0
+var start := true
+var turn := 0
 var deck
 
 func _ready():
@@ -15,8 +16,7 @@ func _ready():
 	deck = Deck.new()
 	
 	self.greet_mortal()
-	yield(get_tree().create_timer(3), "timeout")
-	self.add_turn()
+	yield(get_tree().create_timer(2), "timeout")
 	Events.emit_signal("mortal_turn_start")
 	
 func _on_Button_pressed():
@@ -32,14 +32,16 @@ func _on_mortal_move_start():
 	$Path.move_mortal()
 	
 func _on_mortal_turn_end():
-	self.add_turn()
 	Events.emit_signal("mortal_turn_start")
 	
 func angel_turn_start():
 	yield(get_tree().create_timer(0.5), "timeout")
+	self.add_turn()
+	yield(get_tree().create_timer(0.5), "timeout")
 	
-	if turn == 1:
+	if start:
 		self.draw(2)
+		start = false
 	else:
 		self.draw()
 		

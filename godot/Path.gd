@@ -1,10 +1,10 @@
 extends Node2D
 
-const dropzones = 8
+const dropzones = 7
 export var dropzone_scene : PackedScene
 export var tile_scene : PackedScene
 export var mortal_scene : PackedScene
-const starting_index = 5
+const starting_index = 6
 var mortal
 signal mortal_moved
 
@@ -89,6 +89,10 @@ func move_mortal():
 	yield(mortal, 'premoved')
 	
 	for i in range(abs(steps)):
+		# stop movement if the left side of the screen is reached
+		if mortal_index >= dropzones-2 and mortal.is_direction_backwards():
+			break
+			
 		mortal.move()
 		yield(mortal, 'moved')
 		mortal_index += mortal.get_direction()
@@ -97,10 +101,6 @@ func move_mortal():
 		if mortal_index < 0:
 			Events.emit_signal("game_over")
 			return
-		
-		# stop movement if the left side of the screen is reached
-		if mortal_index >= dropzones-1 and mortal.is_direction_backwards():
-			break
 		
 	mortal.postmove()
 	mortal.get_parent().remove_child(mortal)
