@@ -37,6 +37,30 @@ func set_title(v):
 	else:
 		$Label.text = v
 		$Content.texture = load('res://assets/cards/'+title.to_lower()+'.png')
+		
+	match title:
+		'empty':
+			$Description.text = ''
+		'bananas':
+			$Description.text = 'Continue moving, same amount'
+		'banana':
+			$Description.text = 'Continue moving, same amount'
+		'demon dice':
+			$Description.text = 'Roll again, move forward'
+		'demon die':
+			$Description.text = 'Roll again, move forward'
+		'springs':
+			$Description.text = 'Go back where you came from'
+		'spring':
+			$Description.text = 'Go back where you came from'
+		'angel dice':
+			$Description.text = 'Roll again, move backwards'
+		'angel die':
+			$Description.text = 'Roll again, move backwards'
+		'lightbulbs':
+			$Description.text = 'Additional card in hand'
+		'lightbulb':
+			$Description.text = 'Additional card in hand'
 
 ###
 # DRAG AND DROP
@@ -129,10 +153,12 @@ func set_hovering(v):
 	if hovering:
 		target_scale = 1.3*Vector2(1,1)
 		$Label.visible = true
+		$Description.visible = true
 		z_index = 10
 	else:
 		target_scale = Vector2(1,1)
 		$Label.visible = false
+		$Description.visible = false
 		z_index = 0
 	
 	scale_tween.interpolate_property(self, 'scale',

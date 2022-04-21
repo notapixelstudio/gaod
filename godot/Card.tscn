@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Card.gd" type="Script" id=1]
 [ext_resource path="res://assets/card.png" type="Texture" id=2]
@@ -42,6 +42,12 @@ shader_param/outline_color = Color( 1, 1, 1, 1 )
 extents = Vector2( 48, 60 )
 
 [sub_resource type="DynamicFont" id=6]
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 10
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
@@ -137,13 +143,25 @@ shape = SubResource( 1 )
 [node name="Label" type="Label" parent="."]
 visible = false
 margin_left = -51.0
-margin_top = 32.0
+margin_top = 15.0
 margin_right = 49.0
-margin_bottom = 52.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "TEST"
 align = 1
+
+[node name="Description" type="Label" parent="."]
+visible = false
+margin_left = -63.0
+margin_top = 38.0
+margin_right = 64.0
+margin_bottom = 98.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "TEST"
+align = 1
+autowrap = true
 
 [node name="PositionTween" type="Tween" parent="."]
 
