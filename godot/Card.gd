@@ -128,8 +128,12 @@ func set_hovering(v):
 	var target_scale
 	if hovering:
 		target_scale = 1.3*Vector2(1,1)
+		$Label.visible = true
+		z_index = 10
 	else:
 		target_scale = Vector2(1,1)
+		$Label.visible = false
+		z_index = 0
 	
 	scale_tween.interpolate_property(self, 'scale',
 		scale, target_scale, 0.25,

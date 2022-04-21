@@ -20,7 +20,8 @@ texture = ExtResource( 2 )
 [node name="Content" type="Sprite" parent="."]
 position = Vector2( 0, 18 )
 scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 2 )
+z_index = 20
+z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 18 )
@@ -30,10 +31,11 @@ shape = SubResource( 3 )
 [node name="PositionTween" type="Tween" parent="."]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -53.0
-margin_top = 11.0
+margin_top = 33.0
 margin_right = 53.0
-margin_bottom = 43.0
+margin_bottom = 65.0
 align = 1
 valign = 1
 

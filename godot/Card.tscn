@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Card.gd" type="Script" id=1]
 [ext_resource path="res://assets/card.png" type="Texture" id=2]
 [ext_resource path="res://assets/card_back.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/bungee/Bungee-Regular.otf" type="DynamicFontData" id=4]
 
 [sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
@@ -40,6 +41,11 @@ shader_param/outline_color = Color( 1, 1, 1, 1 )
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 60 )
 
+[sub_resource type="DynamicFont" id=6]
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
@@ -55,24 +61,12 @@ tracks/0/keys = {
 "values": [ Vector2( -1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Label:visible")
+tracks/1/path = NodePath("Content:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Content:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -94,25 +88,13 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ), Vector2( 1, 1 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Label:visible")
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -123,13 +105,13 @@ tracks/2/keys = {
 "method": "set_face_up"
 } ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Content:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("Content:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -155,15 +137,13 @@ shape = SubResource( 1 )
 [node name="Label" type="Label" parent="."]
 visible = false
 margin_left = -51.0
-margin_top = 6.0
+margin_top = 32.0
 margin_right = 49.0
-margin_bottom = 26.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_bottom = 52.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 6 )
 text = "TEST"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PositionTween" type="Tween" parent="."]
 
