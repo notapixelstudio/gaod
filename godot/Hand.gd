@@ -28,3 +28,11 @@ func _on_Card_destroyed():
 func get_hand_size():
 	return self.get_child_count()
 	
+func disable():
+	for card in get_children():
+		card.disable()
+		
+func enable():
+	for card in get_children():
+		card.enable()
+		

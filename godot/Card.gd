@@ -10,6 +10,8 @@ Appearance and effect are both defined by a single 'title' string.
 export var front_texture : Texture
 export var back_texture : Texture
 
+var enabled := true
+
 func _ready():
 	set_face_down()
 	
@@ -78,6 +80,9 @@ func set_dragging(v):
 	z_index = int(dragging) # set z-index to one while dragging, to keep the card above others
 
 func _on_Card_input_event(viewport, event, shape_idx):
+	if not enabled:
+		return
+		
 	if event.is_action_pressed('ui_touch'):
 		# Start dragging
 		get_tree().set_input_as_handled()
@@ -89,7 +94,7 @@ func _on_Card_input_event(viewport, event, shape_idx):
 		Events.emit_signal("card_picked", self)
 
 func _input(event):
-	if not dragging:
+	if not enabled or not dragging:
 		return
 		
 	if event is InputEventMouseMotion:
@@ -147,6 +152,9 @@ var hovering = false setget set_hovering
 var playing_a_card = false
 
 func set_hovering(v):
+	if not enabled:
+		return
+		
 	hovering = v
 	
 	var target_scale
@@ -167,6 +175,9 @@ func set_hovering(v):
 	scale_tween.start()
 
 func _on_Card_mouse_entered():
+	if not enabled:
+		return
+		
 	if not playing_a_card:
 		set_hovering(true)
 	
@@ -181,4 +192,12 @@ func _on_card_dropped(card):
 	
 func _on_card_destroyed(card):
 	playing_a_card = false
+	
+func disable():
+	enabled = false
+	self.set_process_input(false)
+	
+func enable():
+	enabled = true
+	self.set_process_input(true)
 	

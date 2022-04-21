@@ -17,6 +17,7 @@ func _ready():
 	randomize()
 	
 	deck = Deck.new()
+	#$Hand.disable()
 	
 	self.greet_mortal()
 	yield(get_tree().create_timer(2), "timeout")
@@ -50,11 +51,14 @@ func angel_turn_start():
 	else:
 		if $Hand.get_hand_size() < max_hand_size:
 			self.draw()
-		
+			
+	yield(get_tree().create_timer(0.5), "timeout")
 	$PassButton.disabled = false
+	#$Hand.enable()
 	
 func angel_turn_end():
 	$PassButton.disabled = true
+	#$Hand.disable()
 	Events.emit_signal("mortal_move_start")
 	
 func _on_game_over():
