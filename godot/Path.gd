@@ -30,6 +30,8 @@ func setup_tiles():
 			mortal = mortal_scene.instance()
 			tile.add_child(mortal)
 			
+		if i == 3:
+			tile.set_title('banana')
 
 func _ready():
 	Events.connect("preview_card_effect", self, '_on_preview_card_effect')

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/banana.ogg-a2b862879276088ed314681610fdaa17.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/banana.ogg"
+dest_files=[ "res://.import/banana.ogg-a2b862879276088ed314681610fdaa17.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
