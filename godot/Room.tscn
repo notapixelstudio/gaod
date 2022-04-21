@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/clouds.png" type="Texture" id=2]
@@ -30,6 +30,46 @@ size = 128
 outline_size = 6
 outline_color = Color( 1, 0.203922, 0, 1 )
 font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Angel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( -1, 191 ), Vector2( -1, -0.999999 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Deck:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 64, 576 ), Vector2( 64, 384 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PassButton:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 655, 624 ), Vector2( 655, 432 ) ]
+}
 
 [node name="Room" type="Node2D"]
 script = ExtResource( 3 )
@@ -67,13 +107,13 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
 [node name="Angel" type="Sprite" parent="."]
-position = Vector2( -1, -0.999999 )
+position = Vector2( -1, 191 )
 scale = Vector2( 0.51, 0.51 )
 texture = ExtResource( 7 )
 centered = false
 
 [node name="Deck" type="Node2D" parent="."]
-position = Vector2( 64, 384 )
+position = Vector2( 64, 576 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -100,9 +140,9 @@ deck_global_position = Vector2( 64, 384 )
 
 [node name="PassButton" type="Button" parent="."]
 margin_left = 655.0
-margin_top = 432.0
+margin_top = 624.0
 margin_right = 727.0
-margin_bottom = 471.0
+margin_bottom = 663.0
 custom_fonts/font = SubResource( 8 )
 disabled = true
 text = "PASS"
@@ -113,7 +153,6 @@ margin_top = 8.0
 margin_right = 824.0
 margin_bottom = 64.0
 custom_fonts/font = SubResource( 7 )
-text = "Turn 1"
 align = 1
 valign = 1
 
@@ -154,6 +193,9 @@ margin_right = 576.0
 margin_bottom = 359.0
 custom_fonts/font = SubResource( 8 )
 text = "Give me another mortal"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Intro = SubResource( 10 )
 
 [connection signal="pressed" from="PassButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="GameOver/TryAgain" to="." method="_on_TryAgain_pressed"]

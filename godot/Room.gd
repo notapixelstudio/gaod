@@ -19,8 +19,12 @@ func _ready():
 	deck = Deck.new()
 	#$Hand.disable()
 	
+	yield(get_tree().create_timer(1), "timeout")
 	self.greet_mortal()
 	yield(get_tree().create_timer(2), "timeout")
+	$TurnLabel.text = 'Turn 1'
+	$AnimationPlayer.play("Intro")
+	yield($AnimationPlayer, "animation_finished")
 	Events.emit_signal("mortal_turn_start")
 	
 func _on_Button_pressed():
