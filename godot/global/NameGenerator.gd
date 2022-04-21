@@ -26,7 +26,7 @@ var last_names := [
 	'Xinnu',
 	"T'Grohl",
 	'De Kinfix',
-	'Mc Phooba',
+	'McPhooba',
 	'Gololod',
 	'Akky',
 	'Antanas',

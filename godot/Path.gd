@@ -86,6 +86,9 @@ func move_mortal():
 	var steps = mortal.get_steps()
 	var mortal_index = self.find_mortal_index()
 	
+	mortal.premove()
+	yield(mortal, 'premoved')
+	
 	for i in range(steps):
 		mortal.move()
 		yield(mortal, 'moved')
@@ -94,9 +97,10 @@ func move_mortal():
 			Events.emit_signal("game_over")
 			return
 		
-	mortal.reset_move()
+	mortal.postmove()
 	mortal.get_parent().remove_child(mortal)
 	$Tiles.get_child(mortal_index).add_child(mortal)
+	mortal.reset_move()
 	
 	emit_signal('mortal_moved')
 	
