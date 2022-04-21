@@ -67,8 +67,7 @@ func add_turn():
 func draw(how_many = 1):
 	for i in range(how_many):
 		$Hand.draw(deck.draw())
-		$AudioStreamPlayer.stream = load('res://assets/sounds/draw.ogg')
-		$AudioStreamPlayer.play()
+		$AudioStreamPlayer2.play()
 		yield(get_tree().create_timer(0.5), "timeout")
 		
 func greet_mortal():

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/347848__foolboymedia__new-york-jazz-loop.wav-c1ff676354c2096511cddcdd44a196a1.sample"
+
+[deps]
+
+source_file="res://assets/sounds/347848__foolboymedia__new-york-jazz-loop.wav"
+dest_files=[ "res://.import/347848__foolboymedia__new-york-jazz-loop.wav-c1ff676354c2096511cddcdd44a196a1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
