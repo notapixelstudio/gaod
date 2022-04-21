@@ -3,6 +3,7 @@ extends Node2D
 var start := true
 var turn := 0
 var deck
+var max_hand_size := 2
 
 func _ready():
 	Events.connect('mortal_about_to_move', self, '_on_mortal_about_to_move')
@@ -43,7 +44,8 @@ func angel_turn_start():
 		self.draw(2)
 		start = false
 	else:
-		self.draw()
+		if $Hand.get_hand_size() < max_hand_size:
+			self.draw()
 		
 	$PassButton.disabled = false
 	

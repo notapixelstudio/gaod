@@ -25,3 +25,6 @@ func _on_Card_dropped(card):
 func _on_Card_destroyed():
 	update_card_positions()
 	
+func get_hand_size():
+	return self.get_child_count()
+	

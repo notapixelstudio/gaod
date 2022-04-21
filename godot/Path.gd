@@ -90,7 +90,7 @@ func move_mortal():
 	
 	for i in range(abs(steps)):
 		# stop movement if the left side of the screen is reached
-		if mortal_index >= dropzones-2 and mortal.is_direction_backwards():
+		if mortal_index >= dropzones-1 and mortal.is_direction_backwards():
 			break
 			
 		mortal.move()

@@ -71,7 +71,6 @@ separation = 120
 deck_global_position = Vector2( 64, 384 )
 
 [node name="PassButton" type="Button" parent="."]
-visible = false
 margin_left = 607.0
 margin_top = 433.0
 margin_right = 699.0
