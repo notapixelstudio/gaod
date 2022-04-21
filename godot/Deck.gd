@@ -27,6 +27,7 @@ var sets = [
 		'bananas'
 	],
 	[
+		'lightbulbs',
 		'empty',
 		'empty',
 		'empty',

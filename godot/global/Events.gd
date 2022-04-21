@@ -15,3 +15,5 @@ signal mortal_moved()
 signal mortal_turn_end()
 
 signal game_over()
+
+signal hand_size_increased()

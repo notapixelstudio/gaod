@@ -52,6 +52,16 @@ func activate(mortal):
 			self.set_title('empty')
 			mortal.set_direction_backwards()
 			Events.emit_signal("mortal_turn_start")
+		'lightbulbs':
+			self.set_title('lightbulb')
+			Events.emit_signal("hand_size_increased")
+			mortal.set_direction_forward()
+			Events.emit_signal("mortal_turn_end")
+		'lightbulb':
+			self.set_title('empty')
+			Events.emit_signal("hand_size_increased")
+			mortal.set_direction_forward()
+			Events.emit_signal("mortal_turn_end")
 	
 ###
 # AUTOMATIC MOVEMENT
