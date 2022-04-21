@@ -29,6 +29,11 @@ func activate(mortal):
 			self.set_title('empty')
 			Events.emit_signal("mortal_about_to_move", mortal.get_steps())
 		'demon dice':
+			self.set_title('demon die')
+			mortal.set_direction_forward()
+			Events.emit_signal("mortal_turn_start")
+		'demon die':
+			self.set_title('empty')
 			mortal.set_direction_forward()
 			Events.emit_signal("mortal_turn_start")
 		'springs':
@@ -40,6 +45,11 @@ func activate(mortal):
 			mortal.flip_direction()
 			Events.emit_signal("mortal_about_to_move", mortal.get_steps())
 		'angel dice':
+			self.set_title('angel die')
+			mortal.set_direction_backwards()
+			Events.emit_signal("mortal_turn_start")
+		'angel die':
+			self.set_title('empty')
 			mortal.set_direction_backwards()
 			Events.emit_signal("mortal_turn_start")
 	
