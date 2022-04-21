@@ -58,7 +58,10 @@ func angel_turn_end():
 	Events.emit_signal("mortal_move_start")
 	
 func _on_game_over():
-	print('GAME OVER')
+	$GameOverSFX.play()
+	yield($GameOverSFX, "finished")
+	yield(get_tree().create_timer(0.2), "timeout")
+	$GameOver.visible = true
 	
 func add_turn():
 	turn += 1
@@ -82,3 +85,7 @@ func _on_hand_size_increased():
 func _on_tile_activated(tile):
 	$AudioStreamPlayer.stream = load('res://assets/sounds/'+tile.title.to_lower()+'.ogg')
 	$AudioStreamPlayer.play()
+
+
+func _on_TryAgain_pressed():
+	get_tree().reload_current_scene()
