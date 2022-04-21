@@ -6,13 +6,12 @@ signal premoved
 signal moved
 
 const COLORS = [
-	Color(1,1,1,1),
-	Color(1,0.8,0.5,1),
-	Color(1,0.5,0.8,1),
-	Color(0.5,1,0.8,1),
-	Color(0.8,1,0.5,1),
-	Color(0.5,0.8,1,1),
-	Color(0.8,0.5,1,1)
+	Color('#5bc0eb'),
+	Color('#fde74c'),
+	Color('#9bc53d'),
+	Color('#e55934'),
+	Color('#fa7921'),
+	Color('#9c89b8')
 ]
 
 func _ready():
