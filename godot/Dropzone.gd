@@ -5,9 +5,9 @@ signal card_exited
 signal card_played
 
 func _ready():
-	$CollisionShape2D.shape.extents = Vector2(Tile.WIDTH/2, Tile.WIDTH/2)
-	$ColorRect.rect_position = Vector2(-Tile.WIDTH/2, -Tile.WIDTH/2)
-	$ColorRect.rect_size = Vector2(Tile.WIDTH, Tile.WIDTH)
+	$CollisionShape2D.shape.extents = Vector2(Tile.WIDTH/2-3, Tile.WIDTH/2-3+20)
+	$ColorRect.rect_position = Vector2(-Tile.WIDTH/2+3, -Tile.WIDTH/2+3)
+	$ColorRect.rect_size = Vector2(Tile.WIDTH-6, Tile.WIDTH-6+40)
 	
 	Events.connect('card_picked', self, '_on_card_picked')
 	Events.connect('card_dropped', self, '_on_card_dropped')
