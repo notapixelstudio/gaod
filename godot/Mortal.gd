@@ -1,5 +1,7 @@
 extends Node2D
 
+var direction := -1
+
 signal premoved
 signal moved
 
@@ -16,9 +18,16 @@ const COLORS = [
 func _ready():
 	randomize()
 	$Sprite.modulate = COLORS[randi() % len(COLORS)]
+	
+	Events.connect("mortal_turn_start", self, '_on_mortal_turn_start')
+	
+func _on_mortal_turn_start():
+	$Die.roll()
+	yield($Die, "rolled")
+	Events.emit_signal("mortal_about_to_move", self.get_steps())
 
 func get_steps():
-	return $Die.value
+	return $Die.value * direction
 
 func premove():
 	$AnimationPlayer.play("Prejump")
@@ -27,7 +36,7 @@ func premove():
 	
 func move():
 	$Tween.interpolate_property($Sprite, 'position:x',
-		$Sprite.position.x, $Sprite.position.x+Tile.WIDTH, 0.5,
+		$Sprite.position.x, $Sprite.position.x-Tile.WIDTH*direction, 0.5,
 		Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()
 	
@@ -41,3 +50,25 @@ func _on_Tween_tween_all_completed():
 
 func postmove():
 	$AnimationPlayer.play_backwards("Prejump")
+	Events.emit_signal("mortal_moved")
+
+func get_direction():
+	return direction
+	
+func flip_direction():
+	self._set_direction(-direction)
+	
+func set_direction_forward():
+	self._set_direction(-1)
+	
+func set_direction_backwards():
+	self._set_direction(+1)
+	
+func is_direction_backwards():
+	return direction == +1
+	
+func is_direction_forward():
+	return direction == -1
+	
+func _set_direction(v):
+	direction = v

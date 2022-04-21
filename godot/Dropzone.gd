@@ -25,7 +25,7 @@ func interact(card):
 	return false
 	
 func is_valid_target(card):
-	return card.title in ['springs', 'bananas']
+	return card.title in ['springs', 'angel dice']
 
 # HOVER
 func hover(card):

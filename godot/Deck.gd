@@ -3,10 +3,8 @@ extends Node
 class_name Deck
 
 var cards := [
-	'bananas',
-	'bananas',
-	'bananas',
-	'springs'
+	'springs',
+	'angel dice'
 ]
 var actual_cards : Array
 

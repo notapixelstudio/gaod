@@ -75,7 +75,6 @@ func _on_card_played_onto_dropzone(card, i):
 	self.update_tile_positions(true) # instantly
 	
 	Events.emit_signal("card_played", card)
-	self.remove_excess_tiles()
 	
 func remove_excess_tiles():
 	for i in range(dropzones, len($Tiles.get_children())):
@@ -89,20 +88,28 @@ func move_mortal():
 	mortal.premove()
 	yield(mortal, 'premoved')
 	
-	for i in range(steps):
+	for i in range(abs(steps)):
 		mortal.move()
 		yield(mortal, 'moved')
-		mortal_index -= 1 # tile index deacreases going right
+		mortal_index += mortal.get_direction()
+		
+		# die if the right side of the screen is reached
 		if mortal_index < 0:
 			Events.emit_signal("game_over")
 			return
 		
+		# stop movement if the left side of the screen is reached
+		if mortal_index >= dropzones-1 and mortal.is_direction_backwards():
+			break
+		
 	mortal.postmove()
 	mortal.get_parent().remove_child(mortal)
-	$Tiles.get_child(mortal_index).add_child(mortal)
+	var current_tile = $Tiles.get_child(mortal_index)
+	current_tile.add_child(mortal)
 	mortal.reset_move()
+	self.remove_excess_tiles()
 	
-	emit_signal('mortal_moved')
+	current_tile.activate(mortal)
 	
 func find_mortal_index():
 	for i in range($Tiles.get_child_count()):

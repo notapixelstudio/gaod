@@ -8,3 +8,5 @@
 script = ExtResource( 3 )
 arrow_sprite = ExtResource( 1 )
 arrow_end_sprite = ExtResource( 2 )
+
+[node name="Content" type="Node2D" parent="."]

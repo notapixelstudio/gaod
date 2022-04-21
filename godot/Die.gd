@@ -1,17 +1,15 @@
 extends Node2D
 
 var value = 6
+signal rolled
 
-func _ready():
-	Events.connect("mortal_turn_start", self, '_on_mortal_turn_start')
-	
-func _on_mortal_turn_start():
+func roll():
 	$Sprite.visible = true
 	$AnimationPlayer.play("Roll")
 	yield($AnimationPlayer, "animation_finished")
-	Events.emit_signal("mortal_about_to_move", value)
+	emit_signal("rolled")
 	
-func roll():
+func _random_face():
 	value = 1 + randi() % 6
 	$Sprite.texture = load('res://assets/die/'+str(value)+'.png')
 	

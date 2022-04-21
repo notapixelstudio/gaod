@@ -18,19 +18,19 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
-"method": "roll"
+"method": "_random_face"
 }, {
 "args": [  ],
-"method": "roll"
+"method": "_random_face"
 }, {
 "args": [  ],
-"method": "roll"
+"method": "_random_face"
 }, {
 "args": [  ],
-"method": "roll"
+"method": "_random_face"
 }, {
 "args": [  ],
-"method": "roll"
+"method": "_random_face"
 } ]
 }
 
