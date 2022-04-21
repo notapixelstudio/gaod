@@ -11,10 +11,12 @@ var actual_cards : Array
 var sets = [
 	[
 		'empty',
+		'empty',
 		'bananas',
 		'demon dice'
 	],
 	[
+		'lightbulbs',
 		'empty',
 		'empty',
 		'springs',
@@ -27,7 +29,6 @@ var sets = [
 		'bananas'
 	],
 	[
-		'lightbulbs',
 		'empty',
 		'empty',
 		'empty',

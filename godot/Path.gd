@@ -20,6 +20,8 @@ func setup_dropzones():
 		dz.connect('card_played', self, '_on_card_played_onto_dropzone', [i])
 		$Dropzones.add_child(dz)
 		
+	$CloudTile.position.x = -dropzones*Tile.WIDTH
+	
 func setup_tiles():
 	for i in range(dropzones):
 		var tile = tile_scene.instance()
@@ -92,7 +94,7 @@ func move_mortal():
 	
 	for i in range(abs(steps)):
 		# stop movement if the left side of the screen is reached
-		if mortal_index >= dropzones-1 and mortal.is_direction_backwards():
+		if mortal_index >= dropzones and mortal.is_direction_backwards():
 			break
 			
 		mortal.move()
@@ -106,15 +108,29 @@ func move_mortal():
 		
 	mortal.postmove()
 	mortal.get_parent().remove_child(mortal)
-	var current_tile = $Tiles.get_child(mortal_index)
-	current_tile.add_child(mortal)
+	var current_tile
+	if mortal_index < dropzones:
+		current_tile = $Tiles.get_child(mortal_index)
+		current_tile.add_child(mortal)
+	else:
+		$CloudTile.add_child(mortal)
+		
 	mortal.reset_move()
 	self.remove_excess_tiles()
 	
-	current_tile.activate(mortal)
+	if mortal_index < dropzones:
+		current_tile.activate(mortal)
+	else:
+		# cloud is empty
+		mortal.set_direction_forward()
+		Events.emit_signal("mortal_turn_end")
 	
 func find_mortal_index():
+	if mortal.get_parent() == $CloudTile:
+		return dropzones
+		
 	for i in range($Tiles.get_child_count()):
 		if $Tiles.get_child(i).has_node('Mortal'): # WARNING name is used as check
 			return i
+			
 	return null

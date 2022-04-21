@@ -11,6 +11,8 @@ dropzone_scene = ExtResource( 2 )
 tile_scene = ExtResource( 3 )
 mortal_scene = ExtResource( 4 )
 
+[node name="CloudTile" type="Node2D" parent="."]
+
 [node name="Dropzones" type="Node2D" parent="."]
 
 [node name="Tiles" type="Node2D" parent="."]
