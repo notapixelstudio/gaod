@@ -12,6 +12,7 @@ func _ready():
 	Events.connect('card_played', self, '_on_card_played')
 	Events.connect('game_over', self, '_on_game_over')
 	Events.connect('hand_size_increased', self, '_on_hand_size_increased')
+	Events.connect('tile_activated', self, '_on_tile_activated')
 	
 	randomize()
 	
@@ -25,6 +26,8 @@ func _on_Button_pressed():
 	angel_turn_end()
 
 func _on_card_played(card):
+	$AudioStreamPlayer.stream = load('res://assets/sounds/placement.ogg')
+	$AudioStreamPlayer.play()
 	angel_turn_end()
 	
 func _on_mortal_about_to_move(steps):
@@ -64,6 +67,8 @@ func add_turn():
 func draw(how_many = 1):
 	for i in range(how_many):
 		$Hand.draw(deck.draw())
+		$AudioStreamPlayer.stream = load('res://assets/sounds/draw.ogg')
+		$AudioStreamPlayer.play()
 		yield(get_tree().create_timer(0.5), "timeout")
 		
 func greet_mortal():
@@ -74,3 +79,7 @@ func _on_hand_size_increased():
 	max_hand_size += 1
 	# refill whole hand to show it
 	self.draw(max_hand_size - $Hand.get_hand_size())
+
+func _on_tile_activated(tile):
+	$AudioStreamPlayer.stream = load('res://assets/sounds/'+tile.title.to_lower()+'.ogg')
+	$AudioStreamPlayer.play()

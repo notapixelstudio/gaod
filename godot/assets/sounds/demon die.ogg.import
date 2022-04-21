@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/demon die.ogg-e9a6f177f7c6e4bd3352714e8ab40dfa.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/demon die.ogg"
+dest_files=[ "res://.import/demon die.ogg-e9a6f177f7c6e4bd3352714e8ab40dfa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

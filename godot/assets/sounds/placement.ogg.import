@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/placement.ogg-24e082a6471280ec65ff3dd207e6cc29.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/placement.ogg"
+dest_files=[ "res://.import/placement.ogg-24e082a6471280ec65ff3dd207e6cc29.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -17,7 +17,9 @@ func set_title(v):
 		$Content.texture = load('res://assets/cards/'+title.to_lower()+'.png')
 	
 func activate(mortal):
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(0.25), "timeout")
+	Events.emit_signal("tile_activated", self)
+	yield(get_tree().create_timer(0.25), "timeout")
 	match title:
 		'empty':
 			mortal.set_direction_forward()
@@ -62,7 +64,7 @@ func activate(mortal):
 			Events.emit_signal("hand_size_increased")
 			mortal.set_direction_forward()
 			Events.emit_signal("mortal_turn_end")
-	
+			
 ###
 # AUTOMATIC MOVEMENT
 ###

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Mortal.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/move.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Arrow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/mortal.png" type="Texture" id=5]
 [ext_resource path="res://Die.tscn" type="PackedScene" id=7]
@@ -32,6 +33,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( -2, -2, -2 ),
 "update": 0,
 "values": [ Vector2( 0.9, 0.6 ), Vector2( 0.6, 0.9 ), Vector2( 0.9, 0.6 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0.35 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -116,5 +131,8 @@ scale = Vector2( 0.375, 0.375 )
 anims/Jump = SubResource( 1 )
 anims/Prejump = SubResource( 3 )
 anims/RESET = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
