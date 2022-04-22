@@ -13,7 +13,8 @@ var sets = [
 		'empty',
 		'empty',
 		'bananas',
-		'demon dice'
+		'rewind',
+		'lightbulbs'
 	],
 	[
 		'lightbulbs',

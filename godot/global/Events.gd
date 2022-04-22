@@ -16,5 +16,5 @@ signal mortal_turn_end()
 
 signal game_over()
 
-signal hand_size_increased()
+signal draw_effect_activated()
 signal tile_activated(tile)

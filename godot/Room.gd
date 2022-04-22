@@ -11,7 +11,7 @@ func _ready():
 	Events.connect('mortal_turn_end', self, '_on_mortal_turn_end')
 	Events.connect('card_played', self, '_on_card_played')
 	Events.connect('game_over', self, '_on_game_over')
-	Events.connect('hand_size_increased', self, '_on_hand_size_increased')
+	Events.connect('draw_effect_activated', self, '_on_draw_effect_activated')
 	Events.connect('tile_activated', self, '_on_tile_activated')
 	
 	randomize()
@@ -85,10 +85,9 @@ func greet_mortal():
 	var name = NameGenerator.get_name()
 	$TurnLabel.text = 'This is the life of ' + name
 
-func _on_hand_size_increased():
-	max_hand_size += 1
-	# refill whole hand to show it
-	self.draw(max_hand_size - $Hand.get_hand_size())
+func _on_draw_effect_activated():
+	# draw two regardless of hand size
+	self.draw(2)
 
 func _on_tile_activated(tile):
 	$AudioStreamPlayer.stream = load('res://assets/sounds/'+tile.title.to_lower()+'.ogg')

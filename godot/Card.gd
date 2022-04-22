@@ -44,9 +44,9 @@ func set_title(v):
 		'empty':
 			$Description.text = ''
 		'rewind':
-			$Description.text = 'Move one step backwards'
+			$Description.text = 'Go one step backwards, then flips'
 		'forward':
-			$Description.text = 'Move one step forward'
+			$Description.text = 'Go one step forward, then flips'
 		'bananas':
 			$Description.text = 'Continue moving, same amount'
 		'banana':
@@ -64,9 +64,9 @@ func set_title(v):
 		'angel die':
 			$Description.text = 'Roll again, move backwards'
 		'lightbulbs':
-			$Description.text = 'Additional card in hand'
+			$Description.text = 'Draw two cards'
 		'lightbulb':
-			$Description.text = 'Additional card in hand'
+			$Description.text = 'Draw two cards'
 
 ###
 # DRAG AND DROP

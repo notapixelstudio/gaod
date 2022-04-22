@@ -25,12 +25,12 @@ func activate(mortal):
 			mortal.set_direction_forward()
 			Events.emit_signal("mortal_turn_end")
 		'rewind':
-			self.set_title('empty')
+			self.set_title('forward')
 			mortal.set_direction_backwards()
 			mortal.get_die().force_value(1)
 			Events.emit_signal("mortal_about_to_move", mortal.get_steps())
 		'forward':
-			self.set_title('empty')
+			self.set_title('rewind')
 			mortal.set_direction_forward()
 			mortal.get_die().force_value(1)
 			Events.emit_signal("mortal_about_to_move", mortal.get_steps())
@@ -66,12 +66,12 @@ func activate(mortal):
 			Events.emit_signal("mortal_turn_start")
 		'lightbulbs':
 			self.set_title('lightbulb')
-			Events.emit_signal("hand_size_increased")
+			Events.emit_signal("draw_effect_activated")
 			mortal.set_direction_forward()
 			Events.emit_signal("mortal_turn_end")
 		'lightbulb':
 			self.set_title('empty')
-			Events.emit_signal("hand_size_increased")
+			Events.emit_signal("draw_effect_activated")
 			mortal.set_direction_forward()
 			Events.emit_signal("mortal_turn_end")
 			
