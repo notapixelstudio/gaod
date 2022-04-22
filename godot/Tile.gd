@@ -24,6 +24,16 @@ func activate(mortal):
 		'empty':
 			mortal.set_direction_forward()
 			Events.emit_signal("mortal_turn_end")
+		'rewind':
+			self.set_title('empty')
+			mortal.set_direction_backwards()
+			mortal.get_die().force_value(1)
+			Events.emit_signal("mortal_about_to_move", mortal.get_steps())
+		'forward':
+			self.set_title('empty')
+			mortal.set_direction_forward()
+			mortal.get_die().force_value(1)
+			Events.emit_signal("mortal_about_to_move", mortal.get_steps())
 		'bananas':
 			self.set_title('banana')
 			Events.emit_signal("mortal_about_to_move", mortal.get_steps())

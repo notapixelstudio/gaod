@@ -43,6 +43,10 @@ func set_title(v):
 	match title:
 		'empty':
 			$Description.text = ''
+		'rewind':
+			$Description.text = 'Move one step backwards'
+		'forward':
+			$Description.text = 'Move one step forward'
 		'bananas':
 			$Description.text = 'Continue moving, same amount'
 		'banana':

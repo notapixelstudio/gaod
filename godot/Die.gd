@@ -19,3 +19,6 @@ func _random_face():
 func _on_mortal_move_start():
 	$Sprite.visible = false
 	
+func force_value(v):
+	value = v
+	

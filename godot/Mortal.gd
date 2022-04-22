@@ -71,3 +71,7 @@ func is_direction_forward():
 	
 func _set_direction(v):
 	direction = v
+
+func get_die():
+	return $Die
+	

@@ -20,7 +20,8 @@ var sets = [
 		'empty',
 		'empty',
 		'springs',
-		'angel dice'
+		'rewind',
+		'forward'
 	],
 	[
 		'demon dice',
@@ -33,6 +34,8 @@ var sets = [
 		'empty',
 		'empty',
 		'empty',
+		'rewind',
+		'forward',
 		'bananas',
 		'bananas',
 		'angel dice',
