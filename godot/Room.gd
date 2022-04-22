@@ -33,7 +33,7 @@ func _on_Button_pressed():
 func _on_card_played(card):
 	$AudioStreamPlayer.stream = load('res://assets/sounds/placement.ogg')
 	$AudioStreamPlayer.play()
-	angel_turn_end()
+	#angel_turn_end()
 	
 func _on_mortal_about_to_move(steps):
 	self.angel_turn_start()
