@@ -3,7 +3,7 @@ extends Node2D
 var start := true
 var turn := 0
 var deck
-var max_hand_size := 3
+var max_hand_size := 2
 
 func _ready():
 	Events.connect('mortal_about_to_move', self, '_on_mortal_about_to_move')
@@ -49,7 +49,7 @@ func angel_turn_start():
 	yield(get_tree().create_timer(0.5), "timeout")
 	
 	if start:
-		self.draw(3)
+		self.draw(2)
 		start = false
 	else:
 		if $Hand.get_hand_size() < max_hand_size:
@@ -85,8 +85,8 @@ func greet_mortal():
 	$TurnLabel.text = 'This is the life of ' + name
 
 func _on_draw_effect_activated():
-	# draw two regardless of hand size
-	self.draw(2)
+	# draw to three cards
+	self.draw(3-$Hand.get_hand_size())
 
 func _on_tile_activated(tile):
 	$AudioStreamPlayer.stream = load('res://assets/sounds/'+tile.title.to_lower()+'.ogg')

@@ -64,9 +64,9 @@ func set_title(v):
 		'angel die':
 			$Description.text = 'Roll again, move backwards'
 		'lightbulbs':
-			$Description.text = 'Draw two cards'
+			$Description.text = 'Draw to 3 cards'
 		'lightbulb':
-			$Description.text = 'Draw two cards'
+			$Description.text = 'Draw to 3 cards'
 
 ###
 # DRAG AND DROP

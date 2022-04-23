@@ -35,7 +35,7 @@ func premove():
 	
 func move():
 	$Tween.interpolate_property($Sprite, 'position:x',
-		$Sprite.position.x, $Sprite.position.x-Tile.WIDTH*direction, 0.5,
+		$Sprite.position.x, $Sprite.position.x-Tile.WIDTH*direction, 0.4,
 		Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()
 	
