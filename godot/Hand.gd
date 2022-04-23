@@ -4,9 +4,11 @@ const Card = preload('res://Card.tscn')
 
 export var separation = 150
 export var deck_global_position = Vector2(0,0)
+export var enabled := true setget set_enabled
 
 func draw(what):
 	var card = Card.instance()
+	card.enabled = enabled
 	add_child(card)
 	card.connect('dropped', self, '_on_Card_dropped')
 	card.connect('tree_exited', self, '_on_Card_destroyed')
@@ -27,12 +29,9 @@ func _on_Card_destroyed():
 	
 func get_hand_size():
 	return self.get_child_count()
-	
-func disable():
-	for card in get_children():
-		card.disable()
 		
-func enable():
+func set_enabled(v):
+	enabled = v
 	for card in get_children():
-		card.enable()
+		card.set_enabled(enabled)
 		

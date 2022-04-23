@@ -10,7 +10,7 @@ Appearance and effect are both defined by a single 'title' string.
 export var front_texture : Texture
 export var back_texture : Texture
 
-var enabled := true
+var enabled := true setget set_enabled
 
 func _ready():
 	set_face_down()
@@ -156,9 +156,6 @@ var hovering = false setget set_hovering
 var playing_a_card = false
 
 func set_hovering(v):
-	if not enabled:
-		return
-		
 	hovering = v
 	
 	var target_scale
@@ -179,9 +176,6 @@ func set_hovering(v):
 	scale_tween.start()
 
 func _on_Card_mouse_entered():
-	if not enabled:
-		return
-		
 	if not playing_a_card:
 		set_hovering(true)
 	
@@ -197,11 +191,11 @@ func _on_card_dropped(card):
 func _on_card_destroyed(card):
 	playing_a_card = false
 	
-func disable():
-	enabled = false
-	self.set_process_input(false)
-	
-func enable():
-	enabled = true
-	self.set_process_input(true)
-	
+func set_enabled(v):
+	enabled = v
+	if enabled:
+		$Sprite.material.set_shader_param('width', 4)
+		$Sprite.material.set_shader_param('outline_color', Color(1,1,1,1))
+	else:
+		$Sprite.material.set_shader_param('width', 0)
+		$Sprite.material.set_shader_param('outline_color', Color(0,0,0,1))

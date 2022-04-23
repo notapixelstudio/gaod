@@ -17,7 +17,6 @@ func _ready():
 	randomize()
 	
 	deck = Deck.new()
-	#$Hand.disable()
 	
 	yield(get_tree().create_timer(1), "timeout")
 	self.greet_mortal()
@@ -58,11 +57,11 @@ func angel_turn_start():
 			
 	yield(get_tree().create_timer(0.5), "timeout")
 	$PassButton.disabled = false
-	#$Hand.enable()
+	$Hand.enabled = true
 	
 func angel_turn_end():
 	$PassButton.disabled = true
-	#$Hand.disable()
+	$Hand.enabled = false
 	Events.emit_signal("mortal_move_start")
 	
 func _on_game_over():

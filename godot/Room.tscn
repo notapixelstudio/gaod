@@ -137,6 +137,7 @@ texture = ExtResource( 4 )
 position = Vector2( 410, 394 )
 separation = 120
 deck_global_position = Vector2( 64, 384 )
+enabled = false
 
 [node name="PassButton" type="Button" parent="."]
 margin_left = 655.0
