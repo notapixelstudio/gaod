@@ -56,11 +56,11 @@ func angel_turn_start():
 			self.draw()
 			
 	yield(get_tree().create_timer(0.5), "timeout")
-	$PassButton.disabled = false
+	$PassButton.enable()
 	$Hand.enabled = true
 	
 func angel_turn_end():
-	$PassButton.disabled = true
+	$PassButton.disable()
 	$Hand.enabled = false
 	Events.emit_signal("mortal_move_start")
 	
