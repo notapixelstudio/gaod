@@ -15,6 +15,9 @@ func set_title(v):
 	else:
 		$Label.text = v
 		$Content.texture = load('res://assets/cards/'+title.to_lower()+'.png')
+		
+	if v == 'ghost tile':
+		$Sprite.texture = load('res://assets/blocks/ghost.png')
 	
 func activate(mortal):
 	yield(get_tree().create_timer(0.25), "timeout")
@@ -24,6 +27,8 @@ func activate(mortal):
 		'empty':
 			mortal.set_direction_forward()
 			Events.emit_signal("mortal_turn_end")
+		'ghost tile':
+			Events.emit_signal("game_over")
 		'rewind':
 			self.set_title('forward')
 			mortal.set_direction_backwards()

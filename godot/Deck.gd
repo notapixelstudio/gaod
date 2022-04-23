@@ -3,7 +3,6 @@ extends Node
 class_name Deck
 
 var cards := [
-	'empty',
 	'springs',
 	'angel dice'
 ]
@@ -30,6 +29,12 @@ var sets = [
 		'demon dice',
 		'bananas',
 		'bananas'
+	],
+	[
+		'ghost tile',
+		'ghost tile',
+		'ghost tile',
+		'ghost tile'
 	],
 	[
 		'empty',

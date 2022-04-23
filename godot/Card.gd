@@ -43,6 +43,9 @@ func set_title(v):
 	match title:
 		'empty':
 			$Description.text = ''
+		'ghost tile':
+			$Description.text = 'Danger: not solid'
+			front_texture = load('res://assets/blocks/ghost.png')
 		'rewind':
 			$Description.text = 'Go one step backwards, then flips'
 		'forward':
@@ -193,9 +196,4 @@ func _on_card_destroyed(card):
 	
 func set_enabled(v):
 	enabled = v
-	if enabled:
-		$Sprite.material.set_shader_param('width', 4)
-		$Sprite.material.set_shader_param('outline_color', Color(1,1,1,1))
-	else:
-		$Sprite.material.set_shader_param('width', 0)
-		$Sprite.material.set_shader_param('outline_color', Color(0,0,0,1))
+	$Outline.visible = enabled
