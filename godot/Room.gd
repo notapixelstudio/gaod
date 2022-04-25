@@ -2,6 +2,7 @@ extends Node2D
 
 var start := true
 var turn := 0
+var level := 1
 var deck
 var max_hand_size := 2
 
@@ -46,6 +47,12 @@ func _on_mortal_turn_end():
 func angel_turn_start():
 	yield(get_tree().create_timer(0.5), "timeout")
 	self.add_turn()
+	
+	# check if we leveled up
+	if pow(level+1, 2.5) - 1 <= turn:
+		self.level_up()
+		yield(Events, 'leveled_up')
+	
 	yield(get_tree().create_timer(0.5), "timeout")
 	
 	if start:
@@ -95,3 +102,12 @@ func _on_tile_activated(tile):
 
 func _on_TryAgain_pressed():
 	get_tree().reload_current_scene()
+
+func level_up():
+	level += 1
+	yield(get_tree().create_timer(0.2), "timeout")
+	$LevelUp.visible = true
+
+func _on_loot_picked_up():
+	$LevelUp.visible = false
+	Events.emit_signal("leveled_up")

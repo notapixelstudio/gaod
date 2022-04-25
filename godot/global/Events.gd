@@ -14,6 +14,8 @@ signal mortal_move_start()
 signal mortal_moved()
 signal mortal_turn_end()
 
+signal leveled_up()
+
 signal game_over()
 
 signal draw_effect_activated()

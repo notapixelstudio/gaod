@@ -218,8 +218,35 @@ margin_bottom = 359.0
 custom_fonts/font = SubResource( 8 )
 text = "Give me another mortal"
 
+[node name="LevelUp" type="Node2D" parent="."]
+visible = false
+z_index = 100
+z_as_relative = false
+
+[node name="ColorRect" type="ColorRect" parent="LevelUp"]
+margin_right = 832.0
+margin_bottom = 488.0
+color = Color( 0, 0, 0, 0.643137 )
+
+[node name="Label" type="Label" parent="LevelUp"]
+margin_right = 824.0
+margin_bottom = 480.0
+custom_fonts/font = SubResource( 9 )
+text = "Level Up1"
+align = 1
+valign = 1
+
+[node name="Done" type="Button" parent="LevelUp"]
+margin_left = 256.0
+margin_top = 320.0
+margin_right = 576.0
+margin_bottom = 359.0
+custom_fonts/font = SubResource( 8 )
+text = "pick up loot"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Intro = SubResource( 10 )
 
 [connection signal="pressed" from="PassButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="GameOver/TryAgain" to="." method="_on_TryAgain_pressed"]
+[connection signal="pressed" from="LevelUp/Done" to="." method="_on_loot_picked_up"]
