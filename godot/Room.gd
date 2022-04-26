@@ -3,7 +3,8 @@ extends Node2D
 var start := true
 var turn := 0
 var level := 1
-var deck
+var deck : Deck
+var sets : Sets
 var max_hand_size := 2
 
 func _ready():
@@ -18,6 +19,7 @@ func _ready():
 	randomize()
 	
 	deck = Deck.new()
+	sets = Sets.new()
 	
 	yield(get_tree().create_timer(1), "timeout")
 	self.greet_mortal()
@@ -78,6 +80,7 @@ func _on_game_over():
 	$GameOver.visible = true
 	
 func add_turn():
+	print(sets.get_offer())
 	turn += 1
 	$TurnLabel.text = 'Turn ' + str(turn)
 	
