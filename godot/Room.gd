@@ -105,9 +105,10 @@ func _on_TryAgain_pressed():
 
 func level_up():
 	level += 1
-	yield(get_tree().create_timer(0.2), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	$LevelUp.visible = true
 
 func _on_loot_picked_up():
 	$LevelUp.visible = false
+	Events.emit_signal("new_cards_obtained", ['bananas','bananas'])
 	Events.emit_signal("leveled_up")

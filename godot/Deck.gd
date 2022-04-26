@@ -2,74 +2,37 @@ extends Node
 
 class_name Deck
 
-var cards := [
+var composition := [
 	'empty',
 	'springs',
 	'angel dice'
 ]
-var actual_cards : Array
-
-var sets = [
-	[
-		'empty',
-		'empty',
-		'bananas',
-		'rewind',
-		'lightbulbs'
-	],
-	[
-		'lightbulbs',
-		'empty',
-		'empty',
-		'springs',
-		'rewind',
-		'forward'
-	],
-	[
-		'demon dice',
-		'demon dice',
-		'bananas',
-		'bananas'
-	],
-	[
-		'ghost tile',
-		'ghost tile',
-		'ghost tile',
-		'ghost tile'
-	],
-	[
-		'empty',
-		'empty',
-		'empty',
-		'empty',
-		'rewind',
-		'forward',
-		'bananas',
-		'bananas',
-		'angel dice',
-		'angel dice',
-		'springs',
-		'springs',
-		'demon dice',
-		'demon dice'
-	]
-]
+var cards : Array
 
 func _init():
 	randomize()
-	self.new_cards()
+	self.reset()
 	
-func new_cards():
-	actual_cards = cards.slice(0, len(cards)-1)
-	actual_cards.shuffle()
+	Events.connect('new_cards_obtained', self, '_on_new_cards_obtained')
 	
-	# unlock more cards as you go
-	if len(sets) > 0:
-		cards.append_array(sets.pop_front())
+func reset():
+	cards = [] + composition # duplicate
+	cards.shuffle()
 
 func draw():
-	if len(actual_cards) == 0:
-		self.new_cards()
+	if len(cards) == 0:
+		self.reset()
 		
-	return actual_cards.pop_front()
+	return cards.pop_front() # no need to store used cards in a discard pile atm
 	
+func add_new_cards(new_cards):
+	if len(new_cards) <= 0:
+		return
+		
+	var a_new_card = new_cards.pop_front()
+	composition.append_array(new_cards)
+	self.reset() # do not wait for the deck to be emptied to start drawing the new cards
+	cards.push_front(a_new_card) # one of the new cards is drawn as soon as possible
+	
+func _on_new_cards_obtained(new_cards):
+	self.add_new_cards(new_cards)
