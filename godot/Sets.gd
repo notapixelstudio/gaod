@@ -6,8 +6,7 @@ var sets := {
 	'carpenter' : [
 		'empty',
 		'empty',
-		'empty',
-		'ghost'
+		'ghost tile'
 	],
 	'clockwork': [
 		'springs',
@@ -17,7 +16,7 @@ var sets := {
 	],
 	'wizard': [
 		'lightbulbs',
-		'empty',
+		'lightbulbs',
 		'empty'
 	],
 	'gambler': [

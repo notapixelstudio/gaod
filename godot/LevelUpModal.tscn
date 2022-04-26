@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://LevelUpModal.gd" type="Script" id=1]
+[ext_resource path="res://Card.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/bungee/Bungee-Regular.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/germania-one/GermaniaOne-Regular.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=9]
+size = 86
+outline_size = 4
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 64
+outline_size = 3
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 18
+font_data = ExtResource( 3 )
+
+[node name="LevelUpModal" type="Node2D"]
+visible = false
+z_index = 100
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 832.0
+margin_bottom = 488.0
+mouse_filter = 2
+color = Color( 0.321569, 0.537255, 0.670588, 1 )
+
+[node name="Title" type="Label" parent="."]
+margin_right = 824.0
+margin_bottom = 129.0
+custom_colors/font_color = Color( 0.486275, 0.129412, 0.129412, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Level Up!"
+align = 1
+valign = 1
+
+[node name="OR" type="Label" parent="."]
+margin_top = 288.0
+margin_right = 824.0
+margin_bottom = 417.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "OR"
+align = 1
+valign = 1
+
+[node name="Offers" type="Node2D" parent="."]
+
+[node name="LeftOffer" type="Node2D" parent="Offers"]
+position = Vector2( 242, 352 )
+
+[node name="Card" parent="Offers/LeftOffer" instance=ExtResource( 2 )]
+position = Vector2( -56, 0 )
+enabled = false
+
+[node name="Card2" parent="Offers/LeftOffer" instance=ExtResource( 2 )]
+position = Vector2( 56, 0 )
+enabled = false
+
+[node name="Done" type="Button" parent="Offers/LeftOffer"]
+margin_left = -112.0
+margin_top = 80.0
+margin_right = 112.0
+margin_bottom = 119.0
+custom_fonts/font = SubResource( 8 )
+text = "add to deck"
+
+[node name="RightOffer" type="Node2D" parent="Offers"]
+position = Vector2( 584, 352 )
+
+[node name="Card" parent="Offers/RightOffer" instance=ExtResource( 2 )]
+position = Vector2( -56, 0 )
+enabled = false
+
+[node name="Card2" parent="Offers/RightOffer" instance=ExtResource( 2 )]
+position = Vector2( 56, 0 )
+enabled = false
+
+[node name="Done" type="Button" parent="Offers/RightOffer"]
+margin_left = -112.0
+margin_top = 80.0
+margin_right = 112.0
+margin_bottom = 119.0
+custom_fonts/font = SubResource( 8 )
+text = "add to deck"
+
+[connection signal="pressed" from="Offers/LeftOffer/Done" to="." method="_on_loot_chosen" binds= [ 0 ]]
+[connection signal="pressed" from="Offers/RightOffer/Done" to="." method="_on_loot_chosen" binds= [ 1 ]]

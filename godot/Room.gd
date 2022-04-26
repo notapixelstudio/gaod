@@ -47,14 +47,14 @@ func _on_mortal_turn_end():
 	Events.emit_signal("mortal_turn_start")
 	
 func angel_turn_start():
-	yield(get_tree().create_timer(0.5), "timeout")
 	self.add_turn()
 	
 	# check if we leveled up
 	if pow(level+1, 2.5) - 1 <= turn:
 		self.level_up()
 		yield(Events, 'leveled_up')
-	
+		
+		
 	yield(get_tree().create_timer(0.5), "timeout")
 	
 	if start:
@@ -80,7 +80,6 @@ func _on_game_over():
 	$GameOver.visible = true
 	
 func add_turn():
-	print(sets.get_offer())
 	turn += 1
 	$TurnLabel.text = 'Turn ' + str(turn)
 	
@@ -109,9 +108,4 @@ func _on_TryAgain_pressed():
 func level_up():
 	level += 1
 	yield(get_tree().create_timer(0.5), "timeout")
-	$LevelUp.visible = true
-
-func _on_loot_picked_up():
-	$LevelUp.visible = false
-	Events.emit_signal("new_cards_obtained", ['bananas','bananas'])
-	Events.emit_signal("leveled_up")
+	$LevelUpModal.open(sets.get_offer())

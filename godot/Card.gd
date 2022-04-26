@@ -10,7 +10,7 @@ Appearance and effect are both defined by a single 'title' string.
 export var front_texture : Texture
 export var back_texture : Texture
 
-var enabled := true setget set_enabled
+export var enabled := true setget set_enabled
 
 func _ready():
 	set_face_down()
